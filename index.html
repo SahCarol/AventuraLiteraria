@@ -166,166 +166,180 @@
     </div>
 
     <script>
-        // Definição dos nós da aventura
-        const gameNodes = {
-            // Nó inicial
-            start: {
-                text: "🌅 Rio de Janeiro, 1857. Você é Bento Santiago, Bentinho. Sua mãe, D. Glória, fez uma promessa religiosa: você seria padre. Mas seu coração pertence a Capitu, a menina de olhos oblíquos e dissimulados da vizinha. <br><br> Aos 15 anos, você descobre que sua mãe mandou sua amada para um colégio interno, tentando afastá-los. O que fazer?",
-                image: "⛪",
-                choices: [
-                    { text: "💔 Visitar Capitu escondido no colégio", nextNode: "visit_capitu" },
-                    { text: "🙏 Aceitar o destino e entrar para o seminário", nextNode: "accept_seminary" },
-                    { text: "🗣️ Confrontar sua mãe e pedir para casar", nextNode: "confront_mother" }
-                ]
-            },
+        // Aguardar o DOM carregar completamente
+        document.addEventListener('DOMContentLoaded', function() {
             
-            // Ramo 1: Visitar Capitu
-            visit_capitu: {
-                text: "Você escala o muro do colégio Santa Teresa. Capitu aparece na janela, com seus olhos de cigana oblíqua. 'Bentinho, você é um louco!' Ela sorri, mas há um brilho calculista em seu olhar. <br><br> Capitu propõe um plano: você deve fingir que vai ser padre por um tempo, enquanto ela convence sua mãe. 'Confie em mim', ela sussurra. Mas algo na sua voz te faz hesitar...",
-                choices: [
-                    { text: "✨ Aceitar o plano de Capitu", nextNode: "accept_capitu_plan" },
-                    { text: "⚠️ Desconfiar e perguntar suas verdadeiras intenções", nextNode: "distrust_capitu" },
-                    { text: "🏃 Fugir com Capitu agora mesmo", nextNode: "elope_with_capitu" }
-                ]
-            },
-            
-            accept_capitu_plan: {
-                text: "Você topa o plano. Por anos, frequenta o seminário, enquanto Capitu te espera. Finalmente, D. Glória libera vocês para casar. Casam-se, têm filhos. Mas um dia, Ezequiel nasce... e começa a parecer com Escobar, seu melhor amigo. <br><br> A dúvida te corrói: seria Capitu infiel? O que fazer?",
-                choices: [
-                    { text: "🔍 Investigar secretamente", nextNode: "investigate" },
-                    { text: "💀 Confrontar Capitu diretamente", nextNode: "confront_capitu" },
-                    { text: "📝 Escrever um livro sobre sua dor", nextNode: "write_book" }
-                ]
-            },
-            
-            distrust_capitu: {
-                text: "Você questiona Capitu. Ela chora, diz que você não confia nela. 'Os olhos de ressaca, Bentinho... Você nunca entendeu o que eles dizem.' Elsome afasta. Anos depois, ela se casa com outro. Você se torna um homem amargo, solitário, que constrói um casarão idêntico ao da infância, tentando reviver o passado. <br><br> Dom Casmurro: você olha para o passado e não se reconhece.",
-                choices: [
-                    { text: "📖 Recomeçar jornada", nextNode: "start" }
-                ]
-            },
-            
-            elope_with_capitu: {
-                text: "Capitu nega. 'Você é louco, Bentinho!' Ela some na noite. Você volta para casa, derrotado. Sua mãe te manda para a Europa por dois anos. Ao voltar, descobre que Capitu teve um filho de outro. O ciúme te consome. Você passa o resto da vida sozinho, escrevendo memórias para tentar entender o que aconteceu. <br><br> FIM - A solidão de um homem desconfiado.",
-                choices: [
-                    { text: "📖 Recomeçar jornada", nextNode: "start" }
-                ]
-            },
-            
-            // Investigar (final ambíguo)
-            investigate: {
-                text: "Você investiga em segredo. Marca semelhanças entre Ezequiel e Escobar, mas não há provas. Capitu percebe sua frieza e definha lentamente. Ezequiel morre jovem, tentando imitar Escobar. Você fica só, com a dúvida eterna. Será que imaginou tudo? <br><br> 'Também não tive filhos, não transmiti a nenhuma criatura o legado da nossa miséria.'",
-                choices: [
-                    { text: "📖 Recomeçar jornada", nextNode: "start" }
-                ]
-            },
-            
-            confront_capitu: {
-                text: "Você acusa Capitu. Ela nega com veemência, mas seus olhos oblíquos parecem fugir. Antes que possa provar algo, Capitu morre de tristeza. Ezequiel, órfão, parte para a Europa e também morre. Você termina como Dom Casmurro: um homem que matou com as palavras o que não pude provar com fatos.",
-                choices: [
-                    { text: "📖 Recomeçar jornada", nextNode: "start" }
-                ]
-            },
-            
-            write_book: {
-                text: "Você decide escrever suas memórias. Chama o livro de 'Dom Casmurro'. Destila sua dúvida em cada página, transformando Capitu no grande mistério da literatura brasileira. Leitores por gerações vão debater: Capitu traiu ou não? <br><br> Você, Bentinho, morre com a mesma dúvida. Mas a obra fica eterna. FIM - A imortalidade da dúvida.",
-                choices: [
-                    { text: "📖 Recomeçar jornada", nextNode: "start" }
-                ]
-            },
-            
-            // Ramo aceitar seminário
-            accept_seminary: {
-                text: "Você aceita seu destino. Torna-se padre, mas carrega um vazio no peito. Capitu casa com outro, mas continua sua vizinha. Anos depois, você a reencontra no jardim da Glória. Seus olhos dizem tudo que não foi vivido. <br><br> Você sai andando, murmurando: 'Palavra puxa palavra, uma ideia traz outra, e assim fazemos um livro, um governo ou uma revolução.' Mas você não fez nada.",
-                choices: [
-                    { text: "📖 Recomeçar jornada", nextNode: "start" }
-                ]
-            },
-            
-            // Ramo confrontar mãe
-            confront_mother: {
-                text: "D. Glória chora, lembra da promessa a Deus. 'Você quer matar sua mãe?' Capitu intervém: 'Deixe ele fazer o que quiser, senhora. Eu espero.' Sua mãe cede. Vocês casam. <br><br> Mas a felicidade dura pouco. Quando Ezequiel nasce, parecido com Escobar, a dúvida começa. Você vive entre o ciúme e o amor, até que um dia...",
-                choices: [
-                    { text: "🔍 Seguir caminho da investigação", nextNode: "investigate" },
-                    { text: "💀 Seguir caminho do confronto", nextNode: "confront_capitu" }
-                ]
-            }
-        };
+            // Definição dos nós da aventura
+            const gameNodes = {
+                // Nó inicial
+                start: {
+                    text: "🌅 Rio de Janeiro, 1857. Você é Bento Santiago, Bentinho. Sua mãe, D. Glória, fez uma promessa religiosa: você seria padre. Mas seu coração pertence a Capitu, a menina de olhos oblíquos e dissimulados da vizinha. <br><br> Aos 15 anos, você descobre que sua mãe mandou sua amada para um colégio interno, tentando afastá-los. O que fazer?",
+                    image: "⛪",
+                    choices: [
+                        { text: "💔 Visitar Capitu escondido no colégio", nextNode: "visit_capitu" },
+                        { text: "🙏 Aceitar o destino e entrar para o seminário", nextNode: "accept_seminary" },
+                        { text: "🗣️ Confrontar sua mãe e pedir para casar", nextNode: "confront_mother" }
+                    ]
+                },
+                
+                // Ramo 1: Visitar Capitu
+                visit_capitu: {
+                    text: "Você escala o muro do colégio Santa Teresa. Capitu aparece na janela, com seus olhos de cigana oblíqua. 'Bentinho, você é um louco!' Ela sorri, mas há um brilho calculista em seu olhar. <br><br> Capitu propõe um plano: você deve fingir que vai ser padre por um tempo, enquanto ela convence sua mãe. 'Confie em mim', ela sussurra. Mas algo na sua voz te faz hesitar...",
+                    image: "🏃",
+                    choices: [
+                        { text: "✨ Aceitar o plano de Capitu", nextNode: "accept_capitu_plan" },
+                        { text: "⚠️ Desconfiar e perguntar suas verdadeiras intenções", nextNode: "distrust_capitu" },
+                        { text: "🏃 Fugir com Capitu agora mesmo", nextNode: "elope_with_capitu" }
+                    ]
+                },
+                
+                accept_capitu_plan: {
+                    text: "Você topa o plano. Por anos, frequenta o seminário, enquanto Capitu te espera. Finalmente, D. Glória libera vocês para casar. Casam-se, têm filhos. Mas um dia, Ezequiel nasce... e começa a parecer com Escobar, seu melhor amigo. <br><br> A dúvida te corrói: seria Capitu infiel? O que fazer?",
+                    image: "👶",
+                    choices: [
+                        { text: "🔍 Investigar secretamente", nextNode: "investigate" },
+                        { text: "💀 Confrontar Capitu diretamente", nextNode: "confront_capitu" },
+                        { text: "📝 Escrever um livro sobre sua dor", nextNode: "write_book" }
+                    ]
+                },
+                
+                distrust_capitu: {
+                    text: "Você questiona Capitu. Ela chora, diz que você não confia nela. 'Os olhos de ressaca, Bentinho... Você nunca entendeu o que eles dizem.' Ela se afasta. Anos depois, ela se casa com outro. Você se torna um homem amargo, solitário, que constrói um casarão idêntico ao da infância, tentando reviver o passado. <br><br> Dom Casmurro: você olha para o passado e não se reconhece.",
+                    image: "🏚️",
+                    choices: [
+                        { text: "📖 Recomeçar jornada", nextNode: "start" }
+                    ]
+                },
+                
+                elope_with_capitu: {
+                    text: "Capitu nega. 'Você é louco, Bentinho!' Ela some na noite. Você volta para casa, derrotado. Sua mãe te manda para a Europa por dois anos. Ao voltar, descobre que Capitu teve um filho de outro. O ciúme te consome. Você passa o resto da vida sozinho, escrevendo memórias para tentar entender o que aconteceu. <br><br> FIM - A solidão de um homem desconfiado.",
+                    image: "😔",
+                    choices: [
+                        { text: "📖 Recomeçar jornada", nextNode: "start" }
+                    ]
+                },
+                
+                // Investigar (final ambíguo)
+                investigate: {
+                    text: "Você investiga em segredo. Marca semelhanças entre Ezequiel e Escobar, mas não há provas. Capitu percebe sua frieza e definha lentamente. Ezequiel morre jovem, tentando imitar Escobar. Você fica só, com a dúvida eterna. Será que imaginou tudo? <br><br> 'Também não tive filhos, não transmiti a nenhuma criatura o legado da nossa miséria.'",
+                    image: "🔍",
+                    choices: [
+                        { text: "📖 Recomeçar jornada", nextNode: "start" }
+                    ]
+                },
+                
+                confront_capitu: {
+                    text: "Você acusa Capitu. Ela nega com veemência, mas seus olhos oblíquos parecem fugir. Antes que possa provar algo, Capitu morre de tristeza. Ezequiel, órfão, parte para a Europa e também morre. Você termina como Dom Casmurro: um homem que matou com as palavras o que não pôde provar com fatos.",
+                    image: "💀",
+                    choices: [
+                        { text: "📖 Recomeçar jornada", nextNode: "start" }
+                    ]
+                },
+                
+                write_book: {
+                    text: "Você decide escrever suas memórias. Chama o livro de 'Dom Casmurro'. Destila sua dúvida em cada página, transformando Capitu no grande mistério da literatura brasileira. Leitores por gerações vão debater: Capitu traiu ou não? <br><br> Você, Bentinho, morre com a mesma dúvida. Mas a obra fica eterna. FIM - A imortalidade da dúvida.",
+                    image: "📝",
+                    choices: [
+                        { text: "📖 Recomeçar jornada", nextNode: "start" }
+                    ]
+                },
+                
+                // Ramo aceitar seminário
+                accept_seminary: {
+                    text: "Você aceita seu destino. Torna-se padre, mas carrega um vazio no peito. Capitu casa com outro, mas continua sua vizinha. Anos depois, você a reencontra no jardim da Glória. Seus olhos dizem tudo que não foi vivido. <br><br> Você sai andando, murmurando: 'Palavra puxa palavra, uma ideia traz outra, e assim fazemos um livro, um governo ou uma revolução.' Mas você não fez nada.",
+                    image: "🙏",
+                    choices: [
+                        { text: "📖 Recomeçar jornada", nextNode: "start" }
+                    ]
+                },
+                
+                // Ramo confrontar mãe
+                confront_mother: {
+                    text: "D. Glória chora, lembra da promessa a Deus. 'Você quer matar sua mãe?' Capitu intervém: 'Deixe ele fazer o que quiser, senhora. Eu espero.' Sua mãe cede. Vocês casam. <br><br> Mas a felicidade dura pouco. Quando Ezequiel nasce, parecido com Escobar, a dúvida começa. Você vive entre o ciúme e o amor, até que um dia...",
+                    image: "👩",
+                    choices: [
+                        { text: "🔍 Seguir caminho da investigação", nextNode: "investigate" },
+                        { text: "💀 Seguir caminho do confronto", nextNode: "confront_capitu" }
+                    ]
+                }
+            };
 
-        let currentNode = "start";
+            let currentNode = "start";
 
-        // Elementos do DOM
-        const storyTextEl = document.getElementById("storyText");
-        const choicesAreaEl = document.getElementById("choicesArea");
-        const resetBtn = document.getElementById("resetBtn");
-        const sceneImageEl = document.querySelector(".scene-image");
+            // Elementos do DOM
+            const storyTextEl = document.getElementById("storyText");
+            const choicesAreaEl = document.getElementById("choicesArea");
+            const resetBtn = document.getElementById("resetBtn");
+            const sceneImageEl = document.querySelector(".scene-image");
 
-        // Função para atualizar a interface
-        function updateGame() {
-            const node = gameNodes[currentNode];
-            if (!node) {
-                currentNode = "start";
-                updateGame();
-                return;
-            }
-
-            // Aplicar animação
-            storyTextEl.classList.remove("fade-in");
-            void storyTextEl.offsetWidth; // Forçar reflow
-            storyTextEl.classList.add("fade-in");
-            
-            // Atualizar texto
-            storyTextEl.innerHTML = node.text;
-            
-            // Atualizar imagem/ícone
-            if (node.image) {
-                sceneImageEl.innerHTML = node.image;
-            } else {
-                sceneImageEl.innerHTML = "📖";
-            }
-            
-            // Atualizar botões de escolha
-            choicesAreaEl.innerHTML = "";
-            
-            if (node.choices && node.choices.length > 0) {
-                node.choices.forEach((choice, index) => {
-                    const btn = document.createElement("button");
-                    btn.className = "choice-btn";
-                    btn.innerHTML = choice.text;
-                    btn.addEventListener("click", () => {
-                        if (gameNodes[choice.nextNode]) {
-                            currentNode = choice.nextNode;
-                            updateGame();
-                        } else {
-                            console.error("Nó não encontrado:", choice.nextNode);
-                        }
-                    });
-                    choicesAreaEl.appendChild(btn);
-                });
-            } else {
-                // Caso de segurança: se não há escolhas, mostrar botão de reset
-                const resetChoiceBtn = document.createElement("button");
-                resetChoiceBtn.className = "choice-btn";
-                resetChoiceBtn.innerHTML = "📖 Recomeçar jornada";
-                resetChoiceBtn.addEventListener("click", () => {
+            // Função para atualizar a interface
+            function updateGame() {
+                const node = gameNodes[currentNode];
+                if (!node) {
                     currentNode = "start";
                     updateGame();
-                });
-                choicesAreaEl.appendChild(resetChoiceBtn);
+                    return;
+                }
+
+                // Aplicar animação
+                storyTextEl.classList.remove("fade-in");
+                // Forçar reflow
+                void storyTextEl.offsetWidth;
+                storyTextEl.classList.add("fade-in");
+                
+                // Atualizar texto
+                storyTextEl.innerHTML = node.text;
+                
+                // Atualizar imagem/ícone
+                if (node.image) {
+                    sceneImageEl.innerHTML = node.image;
+                } else {
+                    sceneImageEl.innerHTML = "📖";
+                }
+                
+                // Atualizar botões de escolha
+                choicesAreaEl.innerHTML = "";
+                
+                if (node.choices && node.choices.length > 0) {
+                    node.choices.forEach((choice) => {
+                        const btn = document.createElement("button");
+                        btn.className = "choice-btn";
+                        btn.innerHTML = choice.text;
+                        btn.addEventListener("click", () => {
+                            if (gameNodes[choice.nextNode]) {
+                                currentNode = choice.nextNode;
+                                updateGame();
+                            } else {
+                                console.error("Nó não encontrado:", choice.nextNode);
+                            }
+                        });
+                        choicesAreaEl.appendChild(btn);
+                    });
+                } else {
+                    // Caso de segurança: se não há escolhas, mostrar botão de reset
+                    const resetChoiceBtn = document.createElement("button");
+                    resetChoiceBtn.className = "choice-btn";
+                    resetChoiceBtn.innerHTML = "📖 Recomeçar jornada";
+                    resetChoiceBtn.addEventListener("click", () => {
+                        currentNode = "start";
+                        updateGame();
+                    });
+                    choicesAreaEl.appendChild(resetChoiceBtn);
+                }
             }
-        }
 
-        // Reset do jogo
-        function resetGame() {
-            currentNode = "start";
+            // Reset do jogo
+            function resetGame() {
+                currentNode = "start";
+                updateGame();
+            }
+
+            // Event listeners
+            resetBtn.addEventListener("click", resetGame);
+            
+            // Iniciar jogo
             updateGame();
-        }
-
-        // Event listeners
-        resetBtn.addEventListener("click", resetGame);
-        
-        // Iniciar jogo
-        updateGame();
+        });
     </script>
 </body>
 </html>
