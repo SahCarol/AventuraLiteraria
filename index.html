@@ -1,366 +1,345 @@
-const perguntas = [
-    // ========== LINGUAGEM ARTICULADA ==========
-    {
-        texto: "O que é linguagem articulada?",
-        opcoes: [
-            "Linguagem dos sinais",
-            "Comunicação pelo espaço pessoal",
-            "Fala baseada em sons organizados",
-            "Desenhos em cavernas"
-        ],
-        correta: 2,
-        explicacao: "✅ A linguagem articulada é a fala: sons produzidos pela boca, língua e cordas vocais, organizados em palavras e frases."
-    },
-    {
-        texto: "Qual destes é um exemplo de linguagem articulada?",
-        opcoes: [
-            "Piscar os olhos para um amigo",
-            "Escrever um bilhete",
-            "Pedir um sanduíche em voz alta na cantina",
-            "Sentar longe do professor"
-        ],
-        correta: 2,
-        explicacao: "✅ Falar em voz alta é linguagem articulada. Escrever é linguagem escrita (derivada da articulada), mas o exemplo mais direto é a fala."
-    },
-    {
-        texto: "O que acontece se uma pessoa perde a capacidade de produzir sons articulados (afonia)?",
-        opcoes: [
-            "Ela ainda pode se comunicar por escrita ou libras",
-            "Ela nunca mais conseguirá se comunicar",
-            "Ela só conseguirá usar linguagem proxêmica",
-            "Ela passa a pensar de forma diferente"
-        ],
-        correta: 0,
-        explicacao: "✅ A falta da fala não impede a comunicação; existem outras linguagens como a escrita, a libras e a proxêmica."
-    },
-
-    // ========== LINGUAGEM PROXÊMICA ==========
-    {
-        texto: "O que é linguagem proxêmica?",
-        opcoes: [
-            "Comunicação por abraços",
-            "Uso do espaço pessoal e distâncias para transmitir significado",
-            "Linguagem dos animais",
-            "Falar em voz baixa"
-        ],
-        correta: 1,
-        explicacao: "✅ A proxêmica estuda como a distância entre as pessoas comunica sentimentos como intimidade, poder ou desconforto."
-    },
-    {
-        texto: "Na sala de aula, um aluno senta sempre na primeira carteira, perto do professor. O que isso pode comunicar?",
-        opcoes: [
-            "Medo do professor",
-            "Interesse, respeito ou vontade de participar",
-            "Raiva dos colegas",
-            "Desprezo pela matéria"
-        ],
-        correta: 1,
-        explicacao: "✅ Sentar perto do professor geralmente indica engajamento, respeito ou interesse. A proxêmica revela isso sem palavras."
-    },
-    {
-        texto: "No elevador, por que as pessoas geralmente ficam de frente para a porta e evitam contato visual?",
-        opcoes: [
-            "Porque é uma regra da linguagem articulada",
-            "Porque o espaço reduzido exige uma distância de respeito e conforto (proxêmica)",
-            "Porque todas têm vergonha",
-            "Porque é proibido falar no elevador"
-        ],
-        correta: 1,
-        explicacao: "✅ Espaços pequenos como elevadores ativam a proxêmica: as pessoas criam uma 'bolha' de respeito para não invadir umas às outras."
-    },
-    {
-        texto: "Se você está conversando com alguém e essa pessoa dá um passo para trás, o que a proxêmica sugere?",
-        opcoes: [
-            "Ela quer um abraço",
-            "Ela se sente desconfortável com a proximidade",
-            "Ela está com pressa",
-            "Ela quer falar mais alto"
-        ],
-        correta: 1,
-        explicacao: "✅ Recuar no espaço geralmente sinaliza desconforto, necessidade de mais distância pessoal ou desejo de encerrar a proximidade."
-    },
-    {
-        texto: "Em uma fila de banco, qual comportamento é um exemplo de violação da proxêmica?",
-        opcoes: [
-            "Olhar para o celular",
-            "Ficar encostado na pessoa da frente sem necessidade",
-            "Tossir cobrindo a boca",
-            "Falar baixo com o vizinho"
-        ],
-        correta: 1,
-        explicacao: "✅ Invadir o espaço pessoal (encostar) sem permissão é uma violação proxêmica que causa desconforto."
-    },
-
-    // ========== LINGUAGEM HISTÓRICA ==========
-    {
-        texto: "O que significa 'linguagem histórica'?",
-        opcoes: [
-            "Falar apenas de eventos passados",
-            "A língua que não muda nunca",
-            "A língua se transforma com o tempo e a sociedade",
-            "Linguagem usada só em museus"
-        ],
-        correta: 2,
-        explicacao: "✅ As línguas mudam conforme a história: palavras nascem, morrem, mudam de significado. 'Vossa mercê' virou 'você', por exemplo."
-    },
-    {
-        texto: "Qual palavra surgiu no português por causa da tecnologia e da história recente?",
-        opcoes: [
-            "Saudade",
-            "Selfie",
-            "Trovão",
-            "Cavalo"
-        ],
-        correta: 1,
-        explicacao: "✅ 'Selfie' é uma palavra nova, nascida com os celulares e redes sociais. Isso mostra a linguagem acompanhando a história."
-    },
-    {
-        texto: "O que significa a palavra 'saudade' ter surgido no português na época das navegações?",
-        opcoes: [
-            "Que os portugueses nunca sentiam falta de nada",
-            "Que a história de um povo influencia o vocabulário da língua",
-            "Que saudade é uma palavra importada do inglês",
-            "Que essa palavra não tem relação com a história"
-        ],
-        correta: 1,
-        explicacao: "✅ 'Saudade' surgiu com as navegações porque muitos portugueses partiam e sentiam falta de quem ficava. A história criou a palavra."
-    },
-    {
-        texto: "Uma língua morta é aquela que:",
-        opcoes: [
-            "Nunca existiu de verdade",
-            "Não tem mais falantes nativos no dia a dia (ex: latim)",
-            "Só é usada em filmes",
-            "Muda muito rapidamente"
-        ],
-        correta: 1,
-        explicacao: "✅ Latim, egípcio antigo são línguas mortas: ainda existem registros, mas não são línguas maternas de ninguém."
-    },
-
-    // ========== LINGUAGEM E PENSAMENTO ==========
-    {
-        texto: "Como a linguagem pode influenciar o pensamento?",
-        opcoes: [
-            "Ela impede qualquer raciocínio",
-            "Diferentes línguas podem levar a diferentes formas de entender o mundo",
-            "Só existe pensamento sem linguagem",
-            "A linguagem não tem efeito algum na mente"
-        ],
-        correta: 1,
-        explicacao: "✅ Hipótese de Sapir-Whorf e estudos de Vygotsky indicam que a língua que falamos influencia nossa percepção, memória e raciocínio."
-    },
-    {
-        texto: "Um povo que não tem palavras para números acima de 'dois' provavelmente:",
-        opcoes: [
-            "Consegue contar perfeitamente até mil",
-            "Tem dificuldade para pensar em quantidades grandes e exatas",
-            "Usa apenas linguagem proxêmica",
-            "Fala várias línguas ao mesmo tempo"
-        ],
-        correta: 1,
-        explicacao: "✅ Povos como os Pirahã (Amazônia) não têm números exatos, o que afeta como eles pensam sobre quantidades. Exemplo da relação língua-pensamento."
-    },
-    {
-        texto: "Uma língua que usa pontos cardeais (norte, sul, leste, oeste) em vez de 'esquerda' e 'direita' faz com que seus falantes:",
-        opcoes: [
-            "Se percam com frequência",
-            "Desenvolvam uma orientação espacial muito precisa",
-            "Não consigam dançar",
-            "Esqueçam o que é direita"
-        ],
-        correta: 1,
-        explicacao: "✅ Falantes de línguas como o Guugu Yimithirr (Austrália) têm uma bússola mental constante. Mostra como a língua treina o pensamento."
-    },
-
-    // ========== IDENTIFICAÇÃO: QUE LINGUAGEM É ESSA? ==========
-    {
-        texto: "João está muito bravo com Pedro. Em vez de falar, João vira o rosto e senta o mais longe possível dele. Qual linguagem predomina?",
-        opcoes: [
-            "Linguagem articulada",
-            "Linguagem proxêmica",
-            "Linguagem histórica",
-            "Linguagem escrita"
-        ],
-        correta: 1,
-        explicacao: "✅ João usou o espaço (distanciamento) para comunicar sua insatisfação. Isso é proxêmica."
-    },
-    {
-        texto: "Maria explica em voz alta as regras de um jogo para os amigos. Qual linguagem ela está usando?",
-        opcoes: [
-            "Linguagem proxêmica",
-            "Linguagem histórica",
-            "Linguagem articulada",
-            "Linguagem dos sinais"
-        ],
-        correta: 2,
-        explicacao: "✅ Explicar falando, com sons articulados, é linguagem articulada."
-    },
-    {
-        texto: "Um antropólogo descobre que uma palavra antiga significava 'chefe' e hoje significa 'tirano'. Isso é um exemplo de:",
-        opcoes: [
-            "Linguagem proxêmica",
-            "Mudança histórica da língua",
-            "Fala articulada",
-            "Comunicação não verbal"
-        ],
-        correta: 1,
-        explicacao: "✅ Palavras mudam de sentido com o tempo – isso é linguagem histórica atuando."
-    },
-    {
-        texto: "Um aluno sempre levanta a carteira para sentar mais perto da lousa. A professora percebe que ele quer mostrar interesse. Que conceito explica isso?",
-        opcoes: [
-            "Linguagem articulada",
-            "Linguagem proxêmica",
-            "Linguagem histórica",
-            "Pensamento mágico"
-        ],
-        correta: 1,
-        explicacao: "✅ A escolha da distância física (sentar perto) é um ato de proxêmica."
-    },
-
-    // ========== DIFERENCIAÇÃO ENTRE OS TIPOS ==========
-    {
-        texto: "Qual alternativa NÃO é um exemplo de linguagem articulada?",
-        opcoes: [
-            "Um debate na escola",
-            "Um telefonema",
-            "Um sorriso seguido de um passo para trás",
-            "Uma apresentação oral"
-        ],
-        correta: 2,
-        explicacao: "✅ Sorriso + passo para trás envolvem expressão facial e proxêmica, não sons articulados."
-    },
-    {
-        texto: "Qual situação envolve APENAS linguagem proxêmica (sem articulada)?",
-        opcoes: [
-            "Dizer 'sai daqui' empurrando alguém",
-            "Afastar-se silenciosamente de uma pessoa que incomoda",
-            "Escrever um bilhete dizendo 'me deixe em paz'",
-            "Gritar 'não chegue perto'"
-        ],
-        correta: 1,
-        explicacao: "✅ Afastar-se em silêncio usa só o espaço corporal. Não há fala nem escrita."
-    },
-    {
-        texto: "O estudo de como a palavra 'você' surgiu da expressão 'vossa mercê' pertence a qual área?",
-        opcoes: [
-            "Linguagem proxêmica",
-            "Linguagem histórica",
-            "Linguagem articulada pura",
-            "Comunicação animal"
-        ],
-        correta: 1,
-        explicacao: "✅ A mudança 'vossa mercê' → 'você' é uma evolução histórica da língua."
-    },
-
-    // ========== EXTRA: PENSAMENTO CRÍTICO ==========
-    {
-        texto: "Se uma língua não tem o tempo futuro nos verbos, o que alguns estudiosos sugerem sobre seus falantes?",
-        opcoes: [
-            "Eles vivem mais no presente, com menos ansiedade sobre o futuro",
-            "Eles não conseguem planejar nada",
-            "Eles falam mais rápido",
-            "Eles só existem no passado"
-        ],
-        correta: 0,
-        explicacao: "✅ Estudos (como de Keith Chen) sugerem que falantes de línguas sem futuro gramatical tendem a poupar mais e viver mais o presente. É uma hipótese sobre língua e pensamento."
-    },
-    {
-        texto: "Você entra em um ônibus vazio e uma pessoa senta exatamente no banco ao lado do seu. Você se sente incomodado(a). Isso acontece por causa:",
-        opcoes: [
-            "De uma doença mental",
-            "Da violação das regras proxêmicas (espaço pessoal)",
-            "De um problema na fala",
-            "Da falta de educação apenas"
-        ],
-        correta: 1,
-        explicacao: "✅ Em um espaço vazio, sentar colado desrespeita a distância social esperada. A proxêmica explica o desconforto."
-    }
-];
-
-// ========== LÓGICA DO JOGO ==========
-let perguntaAtual = 0;
-let pontuacao = 0;
-let jogoFinalizado = false;
-
-const perguntaTexto = document.getElementById("pergunta-texto");
-const opcoesContainer = document.getElementById("opcoes-container");
-const pontuacaoSpan = document.getElementById("pontuacao");
-const totalPerguntasSpan = document.getElementById("total-perguntas");
-const reiniciarBtn = document.getElementById("reiniciar");
-
-totalPerguntasSpan.textContent = perguntas.length;
-
-function carregarPergunta() {
-    if (jogoFinalizado) return;
-    
-    const pergunta = perguntas[perguntaAtual];
-    perguntaTexto.textContent = pergunta.texto;
-    
-    opcoesContainer.innerHTML = "";
-    
-    pergunta.opcoes.forEach((opcao, idx) => {
-        const div = document.createElement("div");
-        div.classList.add("opcao");
-        div.textContent = opcao;
-        div.dataset.indice = idx;
-        div.addEventListener("click", () => responder(idx));
-        opcoesContainer.appendChild(div);
-    });
-}
-
-function responder(indiceEscolhido) {
-    if (jogoFinalizado) return;
-    
-    const pergunta = perguntas[perguntaAtual];
-    const estaCorreta = (indiceEscolhido === pergunta.correta);
-    
-    const opcoesDiv = document.querySelectorAll(".opcao");
-    
-    // Destaca certo e errado
-    opcoesDiv.forEach((div, idx) => {
-        div.style.pointerEvents = "none";
-        if (idx === pergunta.correta) {
-            div.classList.add("certa");
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Casmurro - Aventura Interativa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        if (idx === indiceEscolhido && idx !== pergunta.correta) {
-            div.classList.add("errada");
+
+        body {
+            background: linear-gradient(135deg, #1e3c2c 0%, #2a1a0e 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            padding: 20px;
         }
-    });
-    
-    if (estaCorreta) {
-        pontuacao++;
-        pontuacaoSpan.textContent = pontuacao;
-    }
-    
-    // Avança ou finaliza
-    setTimeout(() => {
-        perguntaAtual++;
-        if (perguntaAtual < perguntas.length) {
-            carregarPergunta();
-        } else {
-            finalizarJogo();
+
+        .game-container {
+            max-width: 800px;
+            width: 100%;
+            background: #fdf6e3;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+            border: 1px solid #d4a373;
         }
-    }, 1200);
-}
 
-function finalizarJogo() {
-    jogoFinalizado = true;
-    perguntaTexto.textContent = `🎉 Fim de jogo! Você acertou ${pontuacao} de ${perguntas.length}.`;
-    opcoesContainer.innerHTML = "";
-    reiniciarBtn.style.display = "inline-block";
-}
+        .header {
+            background: #2c1810;
+            color: #f0d8a8;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #d4a373;
+        }
 
-function reiniciarJogo() {
-    perguntaAtual = 0;
-    pontuacao = 0;
-    jogoFinalizado = false;
-    pontuacaoSpan.textContent = "0";
-    reiniciarBtn.style.display = "none";
-    carregarPergunta();
-}
+        .header h1 {
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+        }
 
-reiniciarBtn.addEventListener("click", reiniciarJogo);
+        .header p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 5px;
+            font-style: italic;
+        }
 
-// Inicia o jogo
-carregarPergunta();
+        .scene-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #3a2a1a, #1a0f05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4a373;
+            font-size: 4rem;
+            border-bottom: 1px solid #d4a373;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .story-text {
+            background: #fff8ed;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border-left: 5px solid #d4a373;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #2c1810;
+            min-height: 200px;
+        }
+
+        .choices-area {
+            margin-bottom: 25px;
+        }
+
+        .choice-btn {
+            display: block;
+            width: 100%;
+            background: #e8dcc8;
+            border: 2px solid #c4a47c;
+            padding: 12px 20px;
+            margin-bottom: 12px;
+            border-radius: 30px;
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            color: #2c1810;
+        }
+
+        .choice-btn:hover {
+            background: #d4a373;
+            border-color: #8b5e3c;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .reset-btn {
+            background: #2c1810;
+            color: #f0d8a8;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .reset-btn:hover {
+            background: #4a2a1a;
+            transform: scale(1.02);
+        }
+
+        .footer {
+            background: #2c1810;
+            color: #a08060;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.8rem;
+            border-top: 1px solid #d4a373;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>📖 Dom Casmurro</h1>
+            <p>Uma aventura interativa por Machado de Assis</p>
+        </div>
+        <div class="scene-image">
+            ⛪ 🏠 💔
+        </div>
+        <div class="content">
+            <div class="story-text" id="storyText">
+                Carregando...
+            </div>
+            <div class="choices-area" id="choicesArea">
+            </div>
+            <button class="reset-btn" id="resetBtn">🔄 Recomeçar Jornada</button>
+        </div>
+        <div class="footer">
+            Baseado na obra-prima de Machado de Assis | "Não tive filhos, não transmiti a nenhuma criatura o legado da nossa miséria."
+        </div>
+    </div>
+
+    <script>
+        // Aguardar o DOM carregar completamente
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Definição dos nós da aventura
+            const gameNodes = {
+                // Nó inicial
+                start: {
+                    text: "🌅 Rio de Janeiro, 1857. Você é Bento Santiago, Bentinho. Sua mãe, D. Glória, fez uma promessa religiosa: você seria padre. Mas seu coração pertence a Capitu, a menina de olhos oblíquos e dissimulados da vizinha. <br><br> Aos 15 anos, você descobre que sua mãe mandou sua amada para um colégio interno, tentando afastá-los. O que fazer?",
+                    image: "⛪",
+                    choices: [
+                        { text: "💔 Visitar Capitu escondido no colégio", nextNode: "visit_capitu" },
+                        { text: "🙏 Aceitar o destino e entrar para o seminário", nextNode: "accept_seminary" },
+                        { text: "🗣️ Confrontar sua mãe e pedir para casar", nextNode: "confront_mother" }
+                    ]
+                },
+                
+                // Ramo 1: Visitar Capitu
+                visit_capitu: {
+                    text: "Você escala o muro do colégio Santa Teresa. Capitu aparece na janela, com seus olhos de cigana oblíqua. 'Bentinho, você é um louco!' Ela sorri, mas há um brilho calculista em seu olhar. <br><br> Capitu propõe um plano: você deve fingir que vai ser padre por um tempo, enquanto ela convence sua mãe. 'Confie em mim', ela sussurra. Mas algo na sua voz te faz hesitar...",
+                    image: "🏃",
+                    choices: [
+                        { text: "✨ Aceitar o plano de Capitu", nextNode: "accept_capitu_plan" },
+                        { text: "⚠️ Desconfiar e perguntar suas verdadeiras intenções", nextNode: "distrust_capitu" },
+                        { text: "🏃 Fugir com Capitu agora mesmo", nextNode: "elope_with_capitu" }
+                    ]
+                },
+                
+                accept_capitu_plan: {
+                    text: "Você topa o plano. Por anos, frequenta o seminário, enquanto Capitu te espera. Finalmente, D. Glória libera vocês para casar. Casam-se, têm filhos. Mas um dia, Ezequiel nasce... e começa a parecer com Escobar, seu melhor amigo. <br><br> A dúvida te corrói: seria Capitu infiel? O que fazer?",
+                    image: "👶",
+                    choices: [
+                        { text: "🔍 Investigar secretamente", nextNode: "investigate" },
+                        { text: "💀 Confrontar Capitu diretamente", nextNode: "confront_capitu" },
+                        { text: "📝 Escrever um livro sobre sua dor", nextNode: "write_book" }
+                    ]
+                },
+                
+                distrust_capitu: {
+                    text: "Você questiona Capitu. Ela chora, diz que você não confia nela. 'Os olhos de ressaca, Bentinho... Você nunca entendeu o que eles dizem.' Ela se afasta. Anos depois, ela se casa com outro. Você se torna um homem amargo, solitário, que constrói um casarão idêntico ao da infância, tentando reviver o passado. <br><br> Dom Casmurro: você olha para o passado e não se reconhece.",
+                    image: "🏚️",
+                    choices: [
+                        { text: "📖 Recomeçar jornada", nextNode: "start" }
+                    ]
+                },
+                
+                elope_with_capitu: {
+                    text: "Capitu nega. 'Você é louco, Bentinho!' Ela some na noite. Você volta para casa, derrotado. Sua mãe te manda para a Europa por dois anos. Ao voltar, descobre que Capitu teve um filho de outro. O ciúme te consome. Você passa o resto da vida sozinho, escrevendo memórias para tentar entender o que aconteceu. <br><br> FIM - A solidão de um homem desconfiado.",
+                    image: "😔",
+                    choices: [
+                        { text: "📖 Recomeçar jornada", nextNode: "start" }
+                    ]
+                },
+                
+                // Investigar (final ambíguo)
+                investigate: {
+                    text: "Você investiga em segredo. Marca semelhanças entre Ezequiel e Escobar, mas não há provas. Capitu percebe sua frieza e definha lentamente. Ezequiel morre jovem, tentando imitar Escobar. Você fica só, com a dúvida eterna. Será que imaginou tudo? <br><br> 'Também não tive filhos, não transmiti a nenhuma criatura o legado da nossa miséria.'",
+                    image: "🔍",
+                    choices: [
+                        { text: "📖 Recomeçar jornada", nextNode: "start" }
+                    ]
+                },
+                
+                confront_capitu: {
+                    text: "Você acusa Capitu. Ela nega com veemência, mas seus olhos oblíquos parecem fugir. Antes que possa provar algo, Capitu morre de tristeza. Ezequiel, órfão, parte para a Europa e também morre. Você termina como Dom Casmurro: um homem que matou com as palavras o que não pôde provar com fatos.",
+                    image: "💀",
+                    choices: [
+                        { text: "📖 Recomeçar jornada", nextNode: "start" }
+                    ]
+                },
+                
+                write_book: {
+                    text: "Você decide escrever suas memórias. Chama o livro de 'Dom Casmurro'. Destila sua dúvida em cada página, transformando Capitu no grande mistério da literatura brasileira. Leitores por gerações vão debater: Capitu traiu ou não? <br><br> Você, Bentinho, morre com a mesma dúvida. Mas a obra fica eterna. FIM - A imortalidade da dúvida.",
+                    image: "📝",
+                    choices: [
+                        { text: "📖 Recomeçar jornada", nextNode: "start" }
+                    ]
+                },
+                
+                // Ramo aceitar seminário
+                accept_seminary: {
+                    text: "Você aceita seu destino. Torna-se padre, mas carrega um vazio no peito. Capitu casa com outro, mas continua sua vizinha. Anos depois, você a reencontra no jardim da Glória. Seus olhos dizem tudo que não foi vivido. <br><br> Você sai andando, murmurando: 'Palavra puxa palavra, uma ideia traz outra, e assim fazemos um livro, um governo ou uma revolução.' Mas você não fez nada.",
+                    image: "🙏",
+                    choices: [
+                        { text: "📖 Recomeçar jornada", nextNode: "start" }
+                    ]
+                },
+                
+                // Ramo confrontar mãe
+                confront_mother: {
+                    text: "D. Glória chora, lembra da promessa a Deus. 'Você quer matar sua mãe?' Capitu intervém: 'Deixe ele fazer o que quiser, senhora. Eu espero.' Sua mãe cede. Vocês casam. <br><br> Mas a felicidade dura pouco. Quando Ezequiel nasce, parecido com Escobar, a dúvida começa. Você vive entre o ciúme e o amor, até que um dia...",
+                    image: "👩",
+                    choices: [
+                        { text: "🔍 Seguir caminho da investigação", nextNode: "investigate" },
+                        { text: "💀 Seguir caminho do confronto", nextNode: "confront_capitu" }
+                    ]
+                }
+            };
+
+            let currentNode = "start";
+
+            // Elementos do DOM
+            const storyTextEl = document.getElementById("storyText");
+            const choicesAreaEl = document.getElementById("choicesArea");
+            const resetBtn = document.getElementById("resetBtn");
+            const sceneImageEl = document.querySelector(".scene-image");
+
+            // Função para atualizar a interface
+            function updateGame() {
+                const node = gameNodes[currentNode];
+                if (!node) {
+                    currentNode = "start";
+                    updateGame();
+                    return;
+                }
+
+                // Aplicar animação
+                storyTextEl.classList.remove("fade-in");
+                // Forçar reflow
+                void storyTextEl.offsetWidth;
+                storyTextEl.classList.add("fade-in");
+                
+                // Atualizar texto
+                storyTextEl.innerHTML = node.text;
+                
+                // Atualizar imagem/ícone
+                if (node.image) {
+                    sceneImageEl.innerHTML = node.image;
+                } else {
+                    sceneImageEl.innerHTML = "📖";
+                }
+                
+                // Atualizar botões de escolha
+                choicesAreaEl.innerHTML = "";
+                
+                if (node.choices && node.choices.length > 0) {
+                    node.choices.forEach((choice) => {
+                        const btn = document.createElement("button");
+                        btn.className = "choice-btn";
+                        btn.innerHTML = choice.text;
+                        btn.addEventListener("click", () => {
+                            if (gameNodes[choice.nextNode]) {
+                                currentNode = choice.nextNode;
+                                updateGame();
+                            } else {
+                                console.error("Nó não encontrado:", choice.nextNode);
+                            }
+                        });
+                        choicesAreaEl.appendChild(btn);
+                    });
+                } else {
+                    // Caso de segurança: se não há escolhas, mostrar botão de reset
+                    const resetChoiceBtn = document.createElement("button");
+                    resetChoiceBtn.className = "choice-btn";
+                    resetChoiceBtn.innerHTML = "📖 Recomeçar jornada";
+                    resetChoiceBtn.addEventListener("click", () => {
+                        currentNode = "start";
+                        updateGame();
+                    });
+                    choicesAreaEl.appendChild(resetChoiceBtn);
+                }
+            }
+
+            // Reset do jogo
+            function resetGame() {
+                currentNode = "start";
+                updateGame();
+            }
+
+            // Event listeners
+            resetBtn.addEventListener("click", resetGame);
+            
+            // Iniciar jogo
+            updateGame();
+        });
+    </script>
+</body>
+</html>
