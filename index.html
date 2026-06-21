@@ -9,21 +9,36 @@
 <body>
     <div class="game-container">
         <header class="header">
+            <div class="header-decoration">✦</div>
             <h1>📖 Dom Casmurro</h1>
             <p>Uma aventura interativa por Machado de Assis</p>
+            <div class="header-decoration">✦</div>
         </header>
 
-        <div class="scene-image" id="sceneImage">⛪ 🏠 💔</div>
+        <div class="scene-image" id="sceneImage">
+            <span class="scene-icon">⛪</span>
+            <span class="scene-icon">🏠</span>
+            <span class="scene-icon">💔</span>
+        </div>
+
+        <div class="progress-bar" id="progressBar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
 
         <main class="content">
             <div class="story-text" id="storyText">Carregando...</div>
+            
             <div class="choices-area" id="choicesArea"></div>
-            <button class="reset-btn" id="resetBtn">🔄 Recomeçar Jornada</button>
+            
+            <div class="action-buttons">
+                <button class="reset-btn" id="resetBtn">🔄 Recomeçar Jornada</button>
+                <button class="history-btn" id="historyBtn" style="display:none;">↩️ Voltar</button>
+            </div>
         </main>
 
         <footer class="footer">
-            Baseado na obra-prima de Machado de Assis<br />
-            <span>"Não tive filhos, não transmiti a nenhuma criatura o legado da nossa miséria."</span>
+            <p>Baseado na obra-prima de Machado de Assis</p>
+            <p class="footer-quote">"Não tive filhos, não transmiti a nenhuma criatura o legado da nossa miséria."</p>
         </footer>
     </div>
 
