@@ -1,245 +1,585 @@
-document.addEventListener('DOMContentLoaded', () => {
+/* ===== IMPORTAÇÃO DE FONTE ===== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
 
-    // ===== NÓS DA AVENTURA (MESMOS DO ANTERIOR) =====
-    const gameNodes = {
-        start: {
-            text: `🌅 Rio de Janeiro, 1857. Você é Bento Santiago, Bentinho. Sua mãe, D. Glória, fez uma promessa religiosa: você seria padre. Mas seu coração pertence a Capitu, a menina de olhos oblíquos e dissimulados da vizinha.<br><br>Aos 15 anos, você descobre que sua mãe mandou sua amada para um colégio interno, tentando afastá-los. O que fazer?`,
-            image: '⛪ 🏠 💔',
-            choices: [
-                { text: '💔 Visitar Capitu escondido no colégio', nextNode: 'visit_capitu' },
-                { text: '🙏 Aceitar o destino e entrar para o seminário', nextNode: 'accept_seminary' },
-                { text: '🗣️ Confrontar sua mãe e pedir para casar', nextNode: 'confront_mother' },
-                { text: '📖 Escrever um diário sobre seus sentimentos', nextNode: 'diary' }
-            ]
-        },
-        diary: {
-            text: `Você começa a escrever um diário secreto, desabafando sobre o amor por Capitu e o medo de ser padre. Uma noite, sua mãe encontra o diário e lê tudo. Em vez de se irritar, ela chora e diz: "Sempre soube que você a amava, mas eu tinha medo de perder meu filho para o mundo."<br><br>Ela decide lhe dar uma chance: se você estudar e se formar, poderá escolher seu próprio caminho. Mas Capitu, desconfiada, começa a se afastar.`,
-            image: '📖',
-            choices: [
-                { text: '❤️ Correr atrás de Capitu e declarar seu amor', nextNode: 'confess_love' },
-                { text: '📚 Aceitar o trato e estudar para impressionar sua mãe', nextNode: 'study_hard' },
-                { text: '🗣️ Conversar com Capitu sobre seus medos', nextNode: 'talk_fears' }
-            ]
-        },
-        confess_love: {
-            text: `Você encontra Capitu no jardim e se declara com todas as palavras. Ela hesita, mas seus olhos brilham. "Sempre esperei por isso, Bentinho. Mas tenha cuidado: o mundo é cruel com os que amam demais."<br><br>Vocês juram amor eterno, mas no dia seguinte, Capitu desaparece. Dizem que foi levada por um primo rico para o Sul. Você passa anos procurando por ela, sem sucesso.`,
-            image: '💔',
-            choices: [
-                { text: '📖 Recomeçar jornada', nextNode: 'start' }
-            ]
-        },
-        study_hard: {
-            text: `Você se dedica aos estudos e se forma em Direito. Sua mãe fica orgulhosa e libera você para casar. Capitu esperou. Casam-se e têm uma filha, Maria, que herda os olhos oblíquos da mãe.<br><br>Mas um dia, você descobre que Capitu mantém correspondência com Escobar. A dúvida volta. O que fazer?`,
-            image: '📚',
-            choices: [
-                { text: '🔍 Investigar as cartas', nextNode: 'investigate' },
-                { text: '💀 Confrontar Capitu', nextNode: 'confront_capitu' },
-                { text: '🤝 Confiar em Capitu e viver em paz', nextNode: 'trust_capitu' }
-            ]
-        },
-        talk_fears: {
-            text: `Você se abre com Capitu sobre seus medos de ser padre, de perdê-la, de não ser suficiente. Ela escuta e, pela primeira vez, parece vulnerável: "Eu também tenho medo, Bentinho. Medo de que você me veja como uma armadilha."<br><br>Vocês decidem enfrentar tudo juntos. Sua mãe, vendo a união de vocês, acaba cedendo. Casam-se e vivem felizes por muitos anos.<br><br>FIM - Amor e confiança venceram.`,
-            image: '🤝',
-            choices: [
-                { text: '📖 Recomeçar jornada', nextNode: 'start' }
-            ]
-        },
-        trust_capitu: {
-            text: `Você decide confiar em Capitu. Rasga as cartas sem ler e a abraça. Com o tempo, a felicidade volta. Ezequiel nasce e, embora alguns digam que ele parece com Escobar, você escolhe não ver.<br><br>Envelhecem juntos. Capitu morre antes de você, e você escreve um livro sobre o amor verdadeiro, não sobre a dúvida. FIM - A escolha da confiança.`,
-            image: '🌟',
-            choices: [
-                { text: '📖 Recomeçar jornada', nextNode: 'start' }
-            ]
-        },
-        visit_capitu: {
-            text: `Você escala o muro do colégio Santa Teresa. Capitu aparece na janela, com seus olhos de cigana oblíqua. "Bentinho, você é um louco!" Ela sorri, mas há um brilho calculista em seu olhar.<br><br>Capitu propõe um plano: você deve fingir que vai ser padre por um tempo, enquanto ela convence sua mãe. "Confie em mim", ela sussurra. Mas algo na voz dela te faz hesitar...`,
-            image: '🏃',
-            choices: [
-                { text: '✨ Aceitar o plano de Capitu', nextNode: 'accept_capitu_plan' },
-                { text: '⚠️ Desconfiar e perguntar suas verdadeiras intenções', nextNode: 'distrust_capitu' },
-                { text: '🏃 Fugir com Capitu agora mesmo', nextNode: 'elope_with_capitu' },
-                { text: '🤔 Pedir mais tempo para pensar', nextNode: 'think_plan' }
-            ]
-        },
-        think_plan: {
-            text: `Você pede mais tempo para pensar. Capitu parece frustrada, mas concorda. Na noite seguinte, você vê um vulto saindo do colégio: é Escobar! Ele e Capitu conversam animadamente.<br><br>Seu coração se parte. Capitu sempre teve um plano, mas você não era o centro dele. Você volta para casa e aceita o seminário.<br><br>FIM - O preço da hesitação.`,
-            image: '⏳',
-            choices: [
-                { text: '📖 Recomeçar jornada', nextNode: 'start' }
-            ]
-        },
-        accept_capitu_plan: {
-            text: `Você topa o plano. Por anos, frequenta o seminário, enquanto Capitu te espera. Finalmente, D. Glória libera vocês para casar. Casam-se, têm filhos. Mas um dia, Ezequiel nasce... e começa a parecer com Escobar, seu melhor amigo.<br><br>A dúvida te corrói: seria Capitu infiel? O que fazer?`,
-            image: '👶',
-            choices: [
-                { text: '🔍 Investigar secretamente', nextNode: 'investigate' },
-                { text: '💀 Confrontar Capitu diretamente', nextNode: 'confront_capitu' },
-                { text: '📝 Escrever um livro sobre sua dor', nextNode: 'write_book' },
-                { text: '🧘 Aceitar a dúvida e seguir em frente', nextNode: 'accept_doubt' }
-            ]
-        },
-        accept_doubt: {
-            text: `Você decide que a dúvida faz parte da vida. Ama Capitu e Ezequiel como são. Quando Ezequiel morre jovem, você sente uma dor profunda, mas não se arrepende de ter amado.<br><br>No fim, você entende que o ciúme é uma escolha, e você escolheu a paz. FIM - A sabedoria da aceitação.`,
-            image: '🕊️',
-            choices: [
-                { text: '📖 Recomeçar jornada', nextNode: 'start' }
-            ]
-        },
-        distrust_capitu: {
-            text: `Você questiona Capitu. Ela chora, diz que você não confia nela. "Os olhos de ressaca, Bentinho... Você nunca entendeu o que eles dizem." Ela se afasta. Anos depois, ela se casa com outro. Você se torna um homem amargo, solitário, que constrói um casarão idêntico ao da infância, tentando reviver o passado.<br><br>Dom Casmurro: você olha para o passado e não se reconhece.`,
-            image: '🏚️',
-            choices: [
-                { text: '📖 Recomeçar jornada', nextNode: 'start' }
-            ]
-        },
-        elope_with_capitu: {
-            text: `Capitu nega. "Você é louco, Bentinho!" Ela some na noite. Você volta para casa, derrotado. Sua mãe te manda para a Europa por dois anos. Ao voltar, descobre que Capitu teve um filho de outro. O ciúme te consome. Você passa o resto da vida sozinho, escrevendo memórias para tentar entender o que aconteceu.<br><br>FIM - A solidão de um homem desconfiado.`,
-            image: '😔',
-            choices: [
-                { text: '📖 Recomeçar jornada', nextNode: 'start' }
-            ]
-        },
-        investigate: {
-            text: `Você investiga em segredo. Marca semelhanças entre Ezequiel e Escobar, mas não há provas. Capitu percebe sua frieza e definha lentamente. Ezequiel morre jovem, tentando imitar Escobar. Você fica só, com a dúvida eterna. Será que imaginou tudo?<br><br>"Também não tive filhos, não transmiti a nenhuma criatura o legado da nossa miséria."`,
-            image: '🔍',
-            choices: [
-                { text: '📖 Recomeçar jornada', nextNode: 'start' }
-            ]
-        },
-        confront_capitu: {
-            text: `Você acusa Capitu. Ela nega com veemência, mas seus olhos oblíquos parecem fugir. Antes que possa provar algo, Capitu morre de tristeza. Ezequiel, órfão, parte para a Europa e também morre. Você termina como Dom Casmurro: um homem que matou com as palavras o que não pôde provar com fatos.`,
-            image: '💀',
-            choices: [
-                { text: '📖 Recomeçar jornada', nextNode: 'start' }
-            ]
-        },
-        write_book: {
-            text: `Você decide escrever suas memórias. Chama o livro de 'Dom Casmurro'. Destila sua dúvida em cada página, transformando Capitu no grande mistério da literatura brasileira. Leitores por gerações vão debater: Capitu traiu ou não?<br><br>Você, Bentinho, morre com a mesma dúvida. Mas a obra fica eterna. FIM - A imortalidade da dúvida.`,
-            image: '📝',
-            choices: [
-                { text: '📖 Recomeçar jornada', nextNode: 'start' }
-            ]
-        },
-        accept_seminary: {
-            text: `Você aceita seu destino. Torna-se padre, mas carrega um vazio no peito. Capitu casa com outro, mas continua sua vizinha. Anos depois, você a reencontra no jardim da Glória. Seus olhos dizem tudo que não foi vivido.<br><br>Você sai andando, murmurando: "Palavra puxa palavra, uma ideia traz outra, e assim fazemos um livro, um governo ou uma revolução." Mas você não fez nada.`,
-            image: '🙏',
-            choices: [
-                { text: '📖 Recomeçar jornada', nextNode: 'start' }
-            ]
-        },
-        confront_mother: {
-            text: `D. Glória chora, lembra da promessa a Deus. "Você quer matar sua mãe?" Capitu intervém: "Deixe ele fazer o que quiser, senhora. Eu espero." Sua mãe cede. Vocês casam.<br><br>Mas a felicidade dura pouco. Quando Ezequiel nasce, parecido com Escobar, a dúvida começa. Você vive entre o ciúme e o amor, até que um dia...`,
-            image: '👩',
-            choices: [
-                { text: '🔍 Seguir caminho da investigação', nextNode: 'investigate' },
-                { text: '💀 Seguir caminho do confronto', nextNode: 'confront_capitu' },
-                { text: '🧘 Seguir caminho da aceitação', nextNode: 'accept_doubt' }
-            ]
-        }
-    };
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    // ===== ESTADO =====
-    let currentNode = 'start';
-    let history = [];
+/* ===== BODY ===== */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #0a0a0a;
+    font-family: 'Lora', 'Georgia', serif;
+    background-image: 
+        radial-gradient(ellipse at 20% 50%, rgba(44, 24, 16, 0.6) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(30, 60, 44, 0.4) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 100%, rgba(44, 24, 16, 0.3) 0%, transparent 50%);
+    background-color: #0a0a0a;
+}
 
-    // ===== DOM =====
-    const storyTextEl = document.getElementById('storyText');
-    const choicesAreaEl = document.getElementById('choicesArea');
-    const resetBtn = document.getElementById('resetBtn');
-    const historyBtn = document.getElementById('historyBtn');
-    const sceneImageEl = document.getElementById('sceneImage');
-    const progressFill = document.getElementById('progressFill');
+/* ===== CONTAINER ===== */
+.game-container {
+    max-width: 880px;
+    width: 100%;
+    background: #1a1210;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 
+        0 0 60px rgba(212, 163, 115, 0.08),
+        0 20px 60px rgba(0, 0, 0, 0.8),
+        inset 0 1px 0 rgba(212, 163, 115, 0.1);
+    border: 1px solid rgba(212, 163, 115, 0.15);
+    transition: all 0.5s ease;
+}
 
-    // ===== FUNÇÃO PARA ATUALIZAR PROGRESSO =====
-    function updateProgress() {
-        const totalNodes = Object.keys(gameNodes).length;
-        const visitedNodes = history.length + 1;
-        const progress = Math.min((visitedNodes / totalNodes) * 100, 100);
-        progressFill.style.width = progress + '%';
+.game-container:hover {
+    box-shadow: 
+        0 0 80px rgba(212, 163, 115, 0.12),
+        0 30px 80px rgba(0, 0, 0, 0.9),
+        inset 0 1px 0 rgba(212, 163, 115, 0.15);
+}
+
+/* ===== HEADER ===== */
+.header {
+    padding: 30px 30px 20px;
+    background: linear-gradient(180deg, #1a1210 0%, #0f0a08 100%);
+    text-align: center;
+    border-bottom: 1px solid rgba(212, 163, 115, 0.1);
+    position: relative;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.header-icon {
+    font-size: 1.8rem;
+    opacity: 0.4;
+    animation: pulseIcon 3s ease-in-out infinite;
+}
+
+@keyframes pulseIcon {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+.header h1 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #f0d8a8 0%, #d4a373 40%, #f0d8a8 70%, #d4a373 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: goldShine 4s ease-in-out infinite;
+    letter-spacing: 6px;
+}
+
+@keyframes goldShine {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.subtitle {
+    color: rgba(160, 128, 96, 0.6);
+    font-size: 1rem;
+    font-style: italic;
+    margin-top: 6px;
+    letter-spacing: 2px;
+}
+
+.header-line {
+    width: 120px;
+    height: 2px;
+    margin: 16px auto 0;
+    background: linear-gradient(90deg, transparent, rgba(212, 163, 115, 0.4), transparent);
+    border-radius: 2px;
+}
+
+/* ===== CENA IMAGEM ===== */
+.scene-image {
+    width: 100%;
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    background: #0f0a08;
+}
+
+.scene-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(ellipse at 30% 50%, rgba(212, 163, 115, 0.05) 0%, transparent 70%),
+        radial-gradient(ellipse at 70% 50%, rgba(212, 163, 115, 0.03) 0%, transparent 70%);
+    z-index: 1;
+}
+
+.scene-overlay {
+    position: absolute;
+    inset: 0;
+    background: 
+        linear-gradient(90deg, transparent 0%, rgba(212, 163, 115, 0.02) 50%, transparent 100%);
+    z-index: 2;
+    animation: overlayMove 8s ease-in-out infinite;
+}
+
+@keyframes overlayMove {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+}
+
+.scene-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.scene-icon {
+    font-size: 5rem;
+    filter: drop-shadow(0 4px 20px rgba(212, 163, 115, 0.15));
+    animation: floatIcon 4s ease-in-out infinite;
+    transition: all 0.4s ease;
+    cursor: default;
+}
+
+.scene-icon:nth-child(2) { animation-delay: 0.8s; }
+.scene-icon:nth-child(3) { animation-delay: 1.6s; }
+
+@keyframes floatIcon {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(-2deg); }
+    75% { transform: translateY(-5px) rotate(2deg); }
+}
+
+.scene-icon:hover {
+    transform: scale(1.2) rotate(-5deg);
+    filter: drop-shadow(0 8px 30px rgba(212, 163, 115, 0.3));
+}
+
+/* ===== PROGRESSO ===== */
+.progress-container {
+    padding: 16px 30px 12px;
+    background: rgba(15, 10, 8, 0.5);
+    border-bottom: 1px solid rgba(212, 163, 115, 0.05);
+}
+
+.progress-label {
+    color: rgba(160, 128, 96, 0.5);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 3px;
+    background: rgba(212, 163, 115, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #d4a373, #f0d8a8, #d4a373);
+    background-size: 200% 100%;
+    border-radius: 4px;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: progressShine 2s linear infinite;
+}
+
+@keyframes progressShine {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* ===== CONTEÚDO ===== */
+.content {
+    padding: 30px 35px 28px;
+    background: #1a1210;
+}
+
+/* ===== TEXTO DA HISTÓRIA ===== */
+.story-text {
+    background: linear-gradient(145deg, #221a16, #1a1210);
+    padding: 32px 35px;
+    border-radius: 16px;
+    margin-bottom: 28px;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #d4c4b0;
+    min-height: 210px;
+    border-left: 4px solid rgba(212, 163, 115, 0.3);
+    border-right: 1px solid rgba(212, 163, 115, 0.05);
+    box-shadow: 
+        inset 0 2px 20px rgba(0, 0, 0, 0.4),
+        0 4px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    font-family: 'Lora', 'Georgia', serif;
+}
+
+.story-text::before {
+    content: '❝';
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    font-size: 3.5rem;
+    color: rgba(212, 163, 115, 0.06);
+    font-family: 'Georgia', serif;
+    line-height: 1;
+}
+
+.story-text::after {
+    content: '❞';
+    position: absolute;
+    bottom: 12px;
+    right: 20px;
+    font-size: 3.5rem;
+    color: rgba(212, 163, 115, 0.06);
+    font-family: 'Georgia', serif;
+    line-height: 1;
+}
+
+/* ===== ESCOLHAS ===== */
+.choices-area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.choice-btn {
+    width: 100%;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #221a16, #1a1210);
+    border: 1px solid rgba(212, 163, 115, 0.12);
+    border-radius: 12px;
+    color: #d4c4b0;
+    font-family: 'Lora', 'Georgia', serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.choice-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(212, 163, 115, 0.05), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.choice-btn:hover::before {
+    opacity: 1;
+}
+
+.choice-btn:hover {
+    border-color: rgba(212, 163, 115, 0.3);
+    transform: translateX(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #2a1e18, #1a1210);
+}
+
+.choice-btn:active {
+    transform: scale(0.98) translateX(4px);
+}
+
+.choice-number {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    background: rgba(212, 163, 115, 0.06);
+    border-radius: 50%;
+    margin-right: 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(212, 163, 115, 0.4);
+    transition: all 0.3s;
+}
+
+.choice-btn:hover .choice-number {
+    background: rgba(212, 163, 115, 0.12);
+    color: rgba(212, 163, 115, 0.6);
+}
+
+/* ===== BOTÕES DE AÇÃO ===== */
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Lora', 'Georgia', serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    justify-content: center;
+    min-width: 140px;
+}
+
+.btn-icon {
+    font-size: 1.1rem;
+}
+
+.btn-reset {
+    background: linear-gradient(135deg, #2c1810, #1a0e0a);
+    color: rgba(212, 163, 115, 0.7);
+    border: 1px solid rgba(212, 163, 115, 0.08);
+}
+
+.btn-reset:hover {
+    background: linear-gradient(135deg, #3a2218, #2c1810);
+    border-color: rgba(212, 163, 115, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    color: rgba(212, 163, 115, 0.9);
+}
+
+.btn-back {
+    background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+    color: rgba(160, 128, 96, 0.5);
+    border: 1px solid rgba(160, 128, 96, 0.05);
+}
+
+.btn-back:hover {
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+    border-color: rgba(160, 128, 96, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    color: rgba(160, 128, 96, 0.7);
+}
+
+.btn:active {
+    transform: scale(0.96) !important;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    padding: 24px 30px 20px;
+    background: linear-gradient(0deg, #0f0a08, #1a1210);
+    border-top: 1px solid rgba(212, 163, 115, 0.05);
+    text-align: center;
+}
+
+.footer-text {
+    color: rgba(160, 128, 96, 0.3);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.footer-quote {
+    color: rgba(160, 128, 96, 0.15);
+    font-size: 0.75rem;
+    font-style: italic;
+    margin-top: 6px;
+    letter-spacing: 0.5px;
+}
+
+.footer-dots {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(212, 163, 115, 0.08);
+    transition: all 0.3s;
+}
+
+.dot:nth-child(2) {
+    background: rgba(212, 163, 115, 0.15);
+    width: 6px;
+    height: 6px;
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .content {
+        padding: 22px 20px 20px;
     }
 
-    // ===== FUNÇÃO PRINCIPAL =====
-    function updateGame() {
-        const node = gameNodes[currentNode];
-        if (!node) {
-            currentNode = 'start';
-            updateGame();
-            return;
-        }
-
-        // Animação
-        storyTextEl.classList.remove('fade-in');
-        void storyTextEl.offsetWidth;
-        storyTextEl.classList.add('fade-in');
-
-        // Texto
-        storyTextEl.innerHTML = node.text;
-
-        // Imagem - dividir ícones
-        if (node.image) {
-            const icons = node.image.split(' ');
-            sceneImageEl.innerHTML = icons.map(icon => 
-                `<span class="scene-icon">${icon}</span>`
-            ).join('');
-        }
-
-        // Escolhas
-        choicesAreaEl.innerHTML = '';
-        if (node.choices && node.choices.length > 0) {
-            node.choices.forEach((choice, index) => {
-                const btn = document.createElement('button');
-                btn.className = 'choice-btn';
-                btn.innerHTML = `<span class="choice-number">${index + 1}</span>${choice.text}`;
-                btn.addEventListener('click', () => {
-                    if (gameNodes[choice.nextNode]) {
-                        history.push(currentNode);
-                        currentNode = choice.nextNode;
-                        updateGame();
-                        updateProgress();
-                        historyBtn.style.display = 'inline-block';
-                    } else {
-                        console.error('Nó não encontrado:', choice.nextNode);
-                    }
-                });
-                choicesAreaEl.appendChild(btn);
-            });
-        } else {
-            const resetChoice = document.createElement('button');
-            resetChoice.className = 'choice-btn';
-            resetChoice.innerHTML = '📖 Recomeçar jornada';
-            resetChoice.addEventListener('click', resetGame);
-            choicesAreaEl.appendChild(resetChoice);
-        }
-
-        // Atualizar progresso
-        updateProgress();
+    .story-text {
+        padding: 24px 20px;
+        font-size: 1rem;
+        min-height: 170px;
     }
 
-    // ===== FUNÇÃO VOLTAR =====
-    function goBack() {
-        if (history.length > 0) {
-            currentNode = history.pop();
-            updateGame();
-            if (history.length === 0) {
-                historyBtn.style.display = 'none';
-            }
-        }
+    .header h1 {
+        font-size: 2.2rem;
+        letter-spacing: 4px;
     }
 
-    // ===== RESET =====
-    function resetGame() {
-        currentNode = 'start';
-        history = [];
-        updateGame();
-        historyBtn.style.display = 'none';
-        progressFill.style.width = '0%';
+    .header {
+        padding: 22px 20px 16px;
     }
 
-    // ===== EVENTOS =====
-    resetBtn.addEventListener('click', resetGame);
-    historyBtn.addEventListener('click', goBack);
+    .scene-image {
+        height: 170px;
+    }
 
-    // ===== INÍCIO =====
-    updateGame();
-    historyBtn.style.display = 'none';
-});
+    .scene-icon {
+        font-size: 3.8rem;
+        gap: 35px;
+    }
+
+    .choice-btn {
+        padding: 14px 18px;
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+        min-width: 100px;
+    }
+
+    .progress-container {
+        padding: 12px 20px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .game-container {
+        border-radius: 20px;
+    }
+
+    .content {
+        padding: 16px 14px 16px;
+    }
+
+    .story-text {
+        padding: 18px 16px;
+        font-size: 0.9rem;
+        min-height: 140px;
+        border-left-width: 3px;
+    }
+
+    .header h1 {
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+    }
+
+    .header-top {
+        gap: 10px;
+    }
+
+    .header-icon {
+        font-size: 1.2rem;
+    }
+
+    .subtitle {
+        font-size: 0.8rem;
+    }
+
+    .scene-image {
+        height: 130px;
+    }
+
+    .scene-icon {
+        font-size: 2.8rem;
+        gap: 20px;
+    }
+
+    .choice-btn {
+        padding: 12px 14px;
+        font-size: 0.85rem;
+        border-radius: 10px;
+    }
+
+    .choice-number {
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 0.7rem;
+        margin-right: 10px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        min-width: unset;
+        padding: 12px 16px;
+        font-size: 0.85rem;
+    }
+
+    .progress-container {
+        padding: 10px 14px 8px;
+    }
+
+    .progress-label {
+        font-size: 0.6rem;
+    }
+
+    .footer {
+        padding: 16px 14px 14px;
+    }
+
+    .footer-text {
+        font-size: 0.7rem;
+    }
+
+    .footer-quote {
+        font-size: 0.65rem;
+    }
+}
