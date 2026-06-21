@@ -9,20 +9,29 @@
 <body>
     <div class="game-container">
         <header class="header">
-            <div class="header-decoration">✦</div>
-            <h1>📖 Dom Casmurro</h1>
-            <p>Uma aventura interativa por Machado de Assis</p>
-            <div class="header-decoration">✦</div>
+            <div class="header-top">
+                <span class="header-icon">📖</span>
+                <h1>Dom Casmurro</h1>
+                <span class="header-icon">📖</span>
+            </div>
+            <p class="subtitle">Uma aventura interativa por Machado de Assis</p>
+            <div class="header-line"></div>
         </header>
 
         <div class="scene-image" id="sceneImage">
-            <span class="scene-icon">⛪</span>
-            <span class="scene-icon">🏠</span>
-            <span class="scene-icon">💔</span>
+            <div class="scene-overlay"></div>
+            <div class="scene-content">
+                <span class="scene-icon">⛪</span>
+                <span class="scene-icon">🏠</span>
+                <span class="scene-icon">💔</span>
+            </div>
         </div>
 
-        <div class="progress-bar" id="progressBar">
-            <div class="progress-fill" id="progressFill"></div>
+        <div class="progress-container">
+            <div class="progress-label">Progresso da História</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
         </div>
 
         <main class="content">
@@ -31,14 +40,23 @@
             <div class="choices-area" id="choicesArea"></div>
             
             <div class="action-buttons">
-                <button class="reset-btn" id="resetBtn">🔄 Recomeçar Jornada</button>
-                <button class="history-btn" id="historyBtn" style="display:none;">↩️ Voltar</button>
+                <button class="btn btn-reset" id="resetBtn">
+                    <span class="btn-icon">🔄</span> Recomeçar
+                </button>
+                <button class="btn btn-back" id="historyBtn" style="display:none;">
+                    <span class="btn-icon">↩️</span> Voltar
+                </button>
             </div>
         </main>
 
         <footer class="footer">
-            <p>Baseado na obra-prima de Machado de Assis</p>
+            <p class="footer-text">Baseado na obra-prima de Machado de Assis</p>
             <p class="footer-quote">"Não tive filhos, não transmiti a nenhuma criatura o legado da nossa miséria."</p>
+            <div class="footer-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
         </footer>
     </div>
 
