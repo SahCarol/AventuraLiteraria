@@ -1,0 +1,215 @@
+/* ===== style.css ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #1e3c2c 0%, #2a1a0e 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    padding: 20px;
+}
+
+.game-container {
+    max-width: 860px;
+    width: 100%;
+    background: #fdf6e3;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border: 1px solid #d4a373;
+    transition: box-shadow 0.3s;
+}
+
+.game-container:hover {
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
+}
+
+/* ===== Header ===== */
+.header {
+    background: #2c1810;
+    color: #f0d8a8;
+    padding: 24px 20px 18px;
+    text-align: center;
+    border-bottom: 3px solid #d4a373;
+}
+
+.header h1 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.header p {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-top: 6px;
+    font-style: italic;
+}
+
+/* ===== Scene Image ===== */
+.scene-image {
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(145deg, #3a2a1a, #1a0f05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d4a373;
+    font-size: 4rem;
+    border-bottom: 2px solid #d4a373;
+    letter-spacing: 12px;
+    transition: all 0.4s;
+}
+
+/* ===== Content ===== */
+.content {
+    padding: 30px 32px 28px;
+}
+
+.story-text {
+    background: #fff8ed;
+    padding: 28px 30px;
+    border-radius: 16px;
+    margin-bottom: 28px;
+    border-left: 6px solid #d4a373;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #2c1810;
+    min-height: 200px;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* ===== Choices ===== */
+.choices-area {
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.choice-btn {
+    display: block;
+    width: 100%;
+    background: #e8dcc8;
+    border: 2px solid #c4a47c;
+    padding: 14px 22px;
+    border-radius: 40px;
+    font-family: 'Georgia', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-align: left;
+    color: #2c1810;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.choice-btn:hover {
+    background: #d4a373;
+    border-color: #8b5e3c;
+    color: #fff;
+    transform: translateX(8px) scale(1.01);
+    box-shadow: 0 6px 14px rgba(139, 94, 60, 0.25);
+}
+
+.choice-btn:active {
+    transform: scale(0.97);
+}
+
+/* ===== Reset ===== */
+.reset-btn {
+    background: #2c1810;
+    color: #f0d8a8;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 40px;
+    font-family: 'Georgia', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    letter-spacing: 0.5px;
+}
+
+.reset-btn:hover {
+    background: #4a2a1a;
+    transform: scale(1.03);
+    box-shadow: 0 8px 18px rgba(44, 24, 16, 0.35);
+}
+
+.reset-btn:active {
+    transform: scale(0.96);
+}
+
+/* ===== Footer ===== */
+.footer {
+    background: #2c1810;
+    color: #a08060;
+    padding: 18px 20px;
+    text-align: center;
+    font-size: 0.85rem;
+    border-top: 2px solid #d4a373;
+    line-height: 1.5;
+}
+
+.footer span {
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* ===== Animações ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 600px) {
+    .content {
+        padding: 20px 16px;
+    }
+
+    .story-text {
+        padding: 20px 18px;
+        font-size: 1rem;
+        min-height: 160px;
+    }
+
+    .choice-btn {
+        font-size: 0.95rem;
+        padding: 12px 18px;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .scene-image {
+        font-size: 3rem;
+        height: 140px;
+        letter-spacing: 6px;
+    }
+
+    .reset-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
