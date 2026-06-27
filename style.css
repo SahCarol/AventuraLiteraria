@@ -74,42 +74,56 @@ body {
     50% { opacity: 0.7; transform: scale(1.05); }
 }
 
-/* ===== TÍTULO DOURADO VIBRANTE - FUNCIONA EM TODOS OS NAVEGADORES ===== */
+/* ===== TÍTULO DOURADO - SOLUÇÃO DEFINITIVA ===== */
 .header h1 {
     font-family: 'Playfair Display', 'Georgia', serif;
     font-size: 2.8rem;
     font-weight: 700;
     letter-spacing: 6px;
     
-    /* COR DOURADA VIBRANTE */
-    color: #FFD700;
+    /* COR DOURADA PURA */
+    color: #FFD700 !important;
     
-    /* GLOW DOURADO INTENSO */
+    /* GLOW COM MÚLTIPLAS CAMADAS */
     text-shadow: 
-        0 0 10px rgba(255, 215, 0, 0.5),
-        0 0 20px rgba(255, 215, 0, 0.3),
-        0 0 40px rgba(255, 215, 0, 0.15),
-        0 0 80px rgba(255, 215, 0, 0.05);
+        0 0 10px #FFD700,
+        0 0 20px #FFD700,
+        0 0 40px #FFD700,
+        0 0 80px #FFA500,
+        0 0 120px #FFA500 !important;
     
-    /* ANIMAÇÃO DE BRILHO PULSANTE */
-    animation: goldGlowPulse 2.5s ease-in-out infinite;
+    /* ANIMAÇÃO DE BRILHO */
+    animation: goldBrilliant 1.5s ease-in-out infinite !important;
+    
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: #FFD700 !important;
 }
 
-@keyframes goldGlowPulse {
+/* Animação com pico de brilho */
+@keyframes goldBrilliant {
     0%, 100% {
         color: #FFD700;
         text-shadow: 
-            0 0 10px rgba(255, 215, 0, 0.5),
-            0 0 20px rgba(255, 215, 0, 0.3),
-            0 0 40px rgba(255, 215, 0, 0.15);
+            0 0 10px #FFD700,
+            0 0 20px #FFD700,
+            0 0 40px #FFD700,
+            0 0 80px #FFA500,
+            0 0 120px #FFA500;
     }
     50% {
         color: #FFE44D;
         text-shadow: 
-            0 0 20px rgba(255, 215, 0, 0.8),
-            0 0 40px rgba(255, 215, 0, 0.5),
-            0 0 80px rgba(255, 215, 0, 0.3),
-            0 0 120px rgba(255, 215, 0, 0.1);
+            0 0 20px #FFE44D,
+            0 0 40px #FFD700,
+            0 0 80px #FFD700,
+            0 0 160px #FFA500,
+            0 0 240px #FF8C00,
+            0 0 320px #FF8C00;
     }
 }
 
@@ -125,8 +139,9 @@ body {
     width: 120px;
     height: 2px;
     margin: 16px auto 0;
-    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.6), transparent);
+    background: linear-gradient(90deg, transparent, #FFD700, transparent);
     border-radius: 2px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
 }
 
 /* ===== CENA IMAGEM ===== */
@@ -502,7 +517,7 @@ body {
 }
 
 /* ============================================================
-   📱 MOBILE - TÍTULO DOURADO VIBRANTE COM GLOW GARANTIDO
+   📱 MOBILE - TÍTULO DOURADO COM GLOW - SOLUÇÃO DEFINITIVA
    ============================================================ */
 
 /* ===== TABLET ===== */
@@ -527,15 +542,17 @@ body {
     }
 
     .header h1 {
-        font-size: 2.4rem;
-        letter-spacing: 4px;
-        color: #FFD700;
+        font-size: 2.4rem !important;
+        letter-spacing: 4px !important;
+        color: #FFD700 !important;
         text-shadow: 
-            0 0 15px rgba(255, 215, 0, 0.6),
-            0 0 30px rgba(255, 215, 0, 0.4),
-            0 0 60px rgba(255, 215, 0, 0.15),
-            0 0 100px rgba(255, 215, 0, 0.05);
-        animation: goldGlowPulse 3s ease-in-out infinite;
+            0 0 15px #FFD700,
+            0 0 30px #FFD700,
+            0 0 60px #FFD700,
+            0 0 100px #FFA500,
+            0 0 150px #FFA500 !important;
+        animation: goldBrilliant 1.8s ease-in-out infinite !important;
+        -webkit-text-fill-color: #FFD700 !important;
     }
 
     .header-icon {
@@ -550,7 +567,7 @@ body {
 
     .header-line {
         width: 100px;
-        background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.5), transparent);
+        background: linear-gradient(90deg, transparent, #FFD700, transparent);
     }
 
     .scene-image {
@@ -707,56 +724,64 @@ body {
     }
 
     /* ============================================================
-       🔥 TÍTULO DOURADO VIBRANTE COM GLOW - MOBILE
+       🔥🔥🔥 TÍTULO DOURADO COM GLOW - SOLUÇÃO DEFINITIVA
        ============================================================ */
     .header h1 {
+        font-family: 'Playfair Display', 'Georgia', serif !important;
         font-size: 1.8rem !important;
+        font-weight: 900 !important;
         letter-spacing: 3px !important;
-        font-weight: 700 !important;
         
-        /* DOURADO VIBRANTE */
+        /* COR DOURADA PURA - FORÇADA */
         color: #FFD700 !important;
         
-        /* GLOW INTENSO */
+        /* GLOW INTENSO - MÚLTIPLAS CAMADAS */
         text-shadow: 
-            0 0 15px rgba(255, 215, 0, 0.8),
-            0 0 30px rgba(255, 215, 0, 0.5),
-            0 0 60px rgba(255, 215, 0, 0.3),
-            0 0 100px rgba(255, 215, 0, 0.15),
-            0 0 150px rgba(255, 215, 0, 0.05) !important;
+            0 0 10px #FFD700,
+            0 0 20px #FFD700,
+            0 0 40px #FFD700,
+            0 0 80px #FFA500,
+            0 0 120px #FFA500,
+            0 0 180px #FF8C00 !important;
         
-        /* ANIMAÇÃO PULSANTE */
-        animation: goldGlowMobile 2s ease-in-out infinite !important;
+        /* ANIMAÇÃO DE BRILHO PULSANTE */
+        animation: goldBrilliantMobile 1.2s ease-in-out infinite !important;
         
+        /* FORÇA A VISIBILIDADE */
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
         
-        /* Remove qualquer interferência */
+        /* REMOVE QUALQUER INTERFERÊNCIA */
         background: none !important;
         -webkit-background-clip: unset !important;
         background-clip: unset !important;
         -webkit-text-fill-color: #FFD700 !important;
+        background-image: none !important;
+        filter: none !important;
     }
 
-    /* Animação específica para mobile - mais intensa */
-    @keyframes goldGlowMobile {
+    /* Animação específica para mobile - MAIS INTENSA */
+    @keyframes goldBrilliantMobile {
         0%, 100% {
             color: #FFD700;
             text-shadow: 
-                0 0 15px rgba(255, 215, 0, 0.8),
-                0 0 30px rgba(255, 215, 0, 0.5),
-                0 0 60px rgba(255, 215, 0, 0.3),
-                0 0 100px rgba(255, 215, 0, 0.15);
+                0 0 10px #FFD700,
+                0 0 20px #FFD700,
+                0 0 40px #FFD700,
+                0 0 80px #FFA500,
+                0 0 120px #FFA500;
         }
         50% {
             color: #FFE44D;
             text-shadow: 
-                0 0 25px rgba(255, 215, 0, 1),
-                0 0 50px rgba(255, 215, 0, 0.8),
-                0 0 80px rgba(255, 215, 0, 0.5),
-                0 0 120px rgba(255, 215, 0, 0.3),
-                0 0 200px rgba(255, 215, 0, 0.1);
+                0 0 20px #FFE44D,
+                0 0 40px #FFD700,
+                0 0 80px #FFD700,
+                0 0 160px #FFA500,
+                0 0 240px #FFA500,
+                0 0 320px #FF8C00,
+                0 0 400px #FF8C00 !important;
         }
     }
 
@@ -779,9 +804,10 @@ body {
     .header-line {
         width: 80px;
         margin-top: 10px;
-        background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent);
+        background: linear-gradient(90deg, transparent, #FFD700, transparent);
         height: 2px;
         display: block !important;
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
     }
 
     .scene-image {
@@ -974,10 +1000,11 @@ body {
         font-size: 1.5rem !important;
         letter-spacing: 2px !important;
         text-shadow: 
-            0 0 12px rgba(255, 215, 0, 0.8),
-            0 0 25px rgba(255, 215, 0, 0.5),
-            0 0 50px rgba(255, 215, 0, 0.25),
-            0 0 80px rgba(255, 215, 0, 0.1) !important;
+            0 0 12px #FFD700,
+            0 0 25px #FFD700,
+            0 0 50px #FFD700,
+            0 0 80px #FFA500,
+            0 0 120px #FFA500 !important;
     }
 
     .header-icon {
