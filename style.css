@@ -28,30 +28,30 @@ body {
 .game-container {
     max-width: 880px;
     width: 100%;
-    background: #1e1613;
+    background: #1a1210;
     border-radius: 32px;
     overflow: hidden;
     box-shadow: 
-        0 0 60px rgba(212, 163, 115, 0.06),
+        0 0 80px rgba(212, 163, 115, 0.08),
         0 20px 60px rgba(0, 0, 0, 0.8),
-        inset 0 1px 0 rgba(212, 163, 115, 0.08);
-    border: 1px solid rgba(212, 163, 115, 0.12);
+        inset 0 1px 0 rgba(212, 163, 115, 0.1);
+    border: 1px solid rgba(212, 163, 115, 0.15);
     transition: all 0.5s ease;
 }
 
 .game-container:hover {
     box-shadow: 
-        0 0 80px rgba(212, 163, 115, 0.08),
+        0 0 120px rgba(212, 163, 115, 0.12),
         0 30px 80px rgba(0, 0, 0, 0.9),
-        inset 0 1px 0 rgba(212, 163, 115, 0.1);
+        inset 0 1px 0 rgba(212, 163, 115, 0.15);
 }
 
 /* ===== HEADER ===== */
 .header {
     padding: 30px 30px 20px;
-    background: linear-gradient(180deg, #221a16 0%, #16100c 100%);
+    background: linear-gradient(180deg, #1a1210 0%, #0f0a08 100%);
     text-align: center;
-    border-bottom: 1px solid rgba(212, 163, 115, 0.08);
+    border-bottom: 1px solid rgba(212, 163, 115, 0.1);
     position: relative;
 }
 
@@ -64,13 +64,13 @@ body {
 
 .header-icon {
     font-size: 1.8rem;
-    opacity: 0.35;
+    opacity: 0.4;
     animation: pulseIcon 3s ease-in-out infinite;
 }
 
 @keyframes pulseIcon {
-    0%, 100% { opacity: 0.25; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.05); }
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
 }
 
 .header h1 {
@@ -92,7 +92,7 @@ body {
 }
 
 .subtitle {
-    color: rgba(180, 150, 120, 0.5);
+    color: rgba(160, 128, 96, 0.5);
     font-size: 1rem;
     font-style: italic;
     margin-top: 6px;
@@ -103,17 +103,17 @@ body {
     width: 120px;
     height: 2px;
     margin: 16px auto 0;
-    background: linear-gradient(90deg, transparent, rgba(212, 163, 115, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(212, 163, 115, 0.4), transparent);
     border-radius: 2px;
 }
 
 /* ===== CENA IMAGEM ===== */
 .scene-image {
     width: 100%;
-    height: 200px;
+    height: 220px;
     position: relative;
     overflow: hidden;
-    background: #16100c;
+    background: #0f0a08;
 }
 
 .scene-image::before {
@@ -121,8 +121,8 @@ body {
     position: absolute;
     inset: 0;
     background: 
-        radial-gradient(ellipse at 30% 50%, rgba(212, 163, 115, 0.04) 0%, transparent 70%),
-        radial-gradient(ellipse at 70% 50%, rgba(212, 163, 115, 0.02) 0%, transparent 70%);
+        radial-gradient(ellipse at 30% 50%, rgba(212, 163, 115, 0.06) 0%, transparent 70%),
+        radial-gradient(ellipse at 70% 50%, rgba(212, 163, 115, 0.04) 0%, transparent 70%);
     z-index: 1;
 }
 
@@ -130,7 +130,7 @@ body {
     position: absolute;
     inset: 0;
     background: 
-        linear-gradient(90deg, transparent 0%, rgba(212, 163, 115, 0.015) 50%, transparent 100%);
+        linear-gradient(90deg, transparent 0%, rgba(212, 163, 115, 0.02) 50%, transparent 100%);
     z-index: 2;
     animation: overlayMove 8s ease-in-out infinite;
 }
@@ -152,8 +152,8 @@ body {
 }
 
 .scene-icon {
-    font-size: 4.5rem;
-    filter: drop-shadow(0 4px 20px rgba(212, 163, 115, 0.12));
+    font-size: 5rem;
+    filter: drop-shadow(0 4px 20px rgba(212, 163, 115, 0.15));
     animation: floatIcon 4s ease-in-out infinite;
     transition: all 0.4s ease;
     cursor: default;
@@ -170,18 +170,18 @@ body {
 
 .scene-icon:hover {
     transform: scale(1.2) rotate(-5deg);
-    filter: drop-shadow(0 8px 30px rgba(212, 163, 115, 0.25));
+    filter: drop-shadow(0 8px 30px rgba(212, 163, 115, 0.3));
 }
 
 /* ===== PROGRESSO ===== */
 .progress-container {
     padding: 14px 30px 10px;
-    background: rgba(22, 16, 12, 0.6);
-    border-bottom: 1px solid rgba(212, 163, 115, 0.04);
+    background: rgba(15, 10, 8, 0.5);
+    border-bottom: 1px solid rgba(212, 163, 115, 0.05);
 }
 
 .progress-label {
-    color: rgba(180, 150, 120, 0.4);
+    color: rgba(160, 128, 96, 0.4);
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -192,7 +192,7 @@ body {
 .progress-bar {
     width: 100%;
     height: 3px;
-    background: rgba(212, 163, 115, 0.06);
+    background: rgba(212, 163, 115, 0.08);
     border-radius: 4px;
     overflow: hidden;
     position: relative;
@@ -215,22 +215,22 @@ body {
 
 /* ===== CONTEÚDO ===== */
 .content {
-    padding: 28px 32px 26px;
-    background: #1e1613;
+    padding: 30px 35px 28px;
+    background: #1a1210;
 }
 
 /* ===== TEXTO DA HISTÓRIA ===== */
 .story-text {
-    background: linear-gradient(145deg, #281e18, #1e1613);
-    padding: 30px 32px;
+    background: linear-gradient(145deg, #221a16, #1a1210);
+    padding: 32px 35px;
     border-radius: 16px;
-    margin-bottom: 26px;
+    margin-bottom: 28px;
     font-size: 1.1rem;
     line-height: 1.9;
-    color: #e0d4c8;
-    min-height: 200px;
-    border-left: 4px solid rgba(212, 163, 115, 0.25);
-    border-right: 1px solid rgba(212, 163, 115, 0.04);
+    color: #d4c4b0;
+    min-height: 210px;
+    border-left: 4px solid rgba(212, 163, 115, 0.3);
+    border-right: 1px solid rgba(212, 163, 115, 0.05);
     box-shadow: 
         inset 0 2px 20px rgba(0, 0, 0, 0.4),
         0 4px 20px rgba(0, 0, 0, 0.2);
@@ -241,10 +241,10 @@ body {
 .story-text::before {
     content: '❝';
     position: absolute;
-    top: 10px;
-    left: 14px;
-    font-size: 3.2rem;
-    color: rgba(212, 163, 115, 0.05);
+    top: 12px;
+    left: 16px;
+    font-size: 3.5rem;
+    color: rgba(212, 163, 115, 0.06);
     font-family: 'Georgia', serif;
     line-height: 1;
 }
@@ -252,10 +252,10 @@ body {
 .story-text::after {
     content: '❞';
     position: absolute;
-    bottom: 10px;
-    right: 18px;
-    font-size: 3.2rem;
-    color: rgba(212, 163, 115, 0.05);
+    bottom: 12px;
+    right: 20px;
+    font-size: 3.5rem;
+    color: rgba(212, 163, 115, 0.06);
     font-family: 'Georgia', serif;
     line-height: 1;
 }
@@ -265,14 +265,14 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 22px;
+    margin-bottom: 24px;
 }
 
 .choice-btn {
     width: 100%;
-    padding: 15px 22px;
-    background: linear-gradient(135deg, #281e18, #1e1613);
-    border: 1px solid rgba(212, 163, 115, 0.10);
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #221a16, #1a1210);
+    border: 1px solid rgba(212, 163, 115, 0.12);
     border-radius: 12px;
     color: #d4c4b0;
     font-family: 'Lora', 'Georgia', serif;
@@ -288,7 +288,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(212, 163, 115, 0.04), transparent);
+    background: linear-gradient(135deg, rgba(212, 163, 115, 0.05), transparent);
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -298,15 +298,14 @@ body {
 }
 
 .choice-btn:hover {
-    border-color: rgba(212, 163, 115, 0.25);
-    transform: translateX(6px);
+    border-color: rgba(212, 163, 115, 0.3);
+    transform: translateX(8px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(135deg, #32261e, #221a16);
-    color: #ece0d4;
+    background: linear-gradient(135deg, #2a1e18, #1a1210);
 }
 
 .choice-btn:active {
-    transform: scale(0.98) translateX(3px);
+    transform: scale(0.98) translateX(4px);
 }
 
 .choice-number {
@@ -315,18 +314,18 @@ body {
     height: 28px;
     line-height: 28px;
     text-align: center;
-    background: rgba(212, 163, 115, 0.05);
+    background: rgba(212, 163, 115, 0.06);
     border-radius: 50%;
     margin-right: 14px;
     font-size: 0.8rem;
     font-weight: 600;
-    color: rgba(212, 163, 115, 0.35);
+    color: rgba(212, 163, 115, 0.4);
     transition: all 0.3s;
 }
 
 .choice-btn:hover .choice-number {
-    background: rgba(212, 163, 115, 0.10);
-    color: rgba(212, 163, 115, 0.55);
+    background: rgba(212, 163, 115, 0.12);
+    color: rgba(212, 163, 115, 0.6);
 }
 
 /* ===== BOTÕES DE AÇÃO ===== */
@@ -337,7 +336,7 @@ body {
 }
 
 .btn {
-    padding: 13px 26px;
+    padding: 14px 28px;
     border: none;
     border-radius: 12px;
     font-family: 'Lora', 'Georgia', serif;
@@ -357,31 +356,31 @@ body {
 }
 
 .btn-reset {
-    background: linear-gradient(135deg, #322018, #1e1210);
+    background: linear-gradient(135deg, #2c1810, #1a0e0a);
     color: rgba(212, 163, 115, 0.6);
-    border: 1px solid rgba(212, 163, 115, 0.06);
+    border: 1px solid rgba(212, 163, 115, 0.08);
 }
 
 .btn-reset:hover {
-    background: linear-gradient(135deg, #3e281e, #2c1a14);
-    border-color: rgba(212, 163, 115, 0.15);
+    background: linear-gradient(135deg, #3a2218, #2c1810);
+    border-color: rgba(212, 163, 115, 0.2);
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-    color: rgba(212, 163, 115, 0.85);
+    color: rgba(212, 163, 115, 0.9);
 }
 
 .btn-back {
-    background: linear-gradient(135deg, #1e1a18, #14100e);
-    color: rgba(180, 150, 120, 0.4);
-    border: 1px solid rgba(180, 150, 120, 0.04);
+    background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+    color: rgba(160, 128, 96, 0.4);
+    border: 1px solid rgba(160, 128, 96, 0.05);
 }
 
 .btn-back:hover {
-    background: linear-gradient(135deg, #2e2622, #1e1613);
-    border-color: rgba(180, 150, 120, 0.12);
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+    border-color: rgba(160, 128, 96, 0.15);
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-    color: rgba(180, 150, 120, 0.65);
+    color: rgba(160, 128, 96, 0.7);
 }
 
 .btn:active {
@@ -390,20 +389,20 @@ body {
 
 /* ===== FOOTER ===== */
 .footer {
-    padding: 22px 30px 18px;
-    background: linear-gradient(0deg, #100c0a, #1a1210);
-    border-top: 1px solid rgba(212, 163, 115, 0.04);
+    padding: 24px 30px 20px;
+    background: linear-gradient(0deg, #0f0a08, #1a1210);
+    border-top: 1px solid rgba(212, 163, 115, 0.05);
     text-align: center;
 }
 
 .footer-text {
-    color: rgba(180, 150, 120, 0.25);
+    color: rgba(160, 128, 96, 0.25);
     font-size: 0.8rem;
     letter-spacing: 1px;
 }
 
 .footer-quote {
-    color: rgba(180, 150, 120, 0.12);
+    color: rgba(160, 128, 96, 0.12);
     font-size: 0.75rem;
     font-style: italic;
     margin-top: 6px;
@@ -421,12 +420,12 @@ body {
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background: rgba(212, 163, 115, 0.06);
+    background: rgba(212, 163, 115, 0.08);
     transition: all 0.3s;
 }
 
 .dot:nth-child(2) {
-    background: rgba(212, 163, 115, 0.12);
+    background: rgba(212, 163, 115, 0.15);
     width: 6px;
     height: 6px;
 }
@@ -447,17 +446,21 @@ body {
     animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-/* ===== RESPONSIVIDADE ===== */
+/* ============================================================
+   🔥 DIFERENÇAS REAIS ENTRE DESKTOP E MOBILE
+   ============================================================ */
+
+/* ===== TABLET / TELAS MÉDIAS ===== */
 @media (max-width: 768px) {
-    .content {
-        padding: 20px 18px 18px;
+    /* Container mais compacto */
+    .game-container {
+        border-radius: 24px;
+        border-color: rgba(212, 163, 115, 0.1);
     }
 
-    .story-text {
-        padding: 22px 20px;
-        font-size: 1rem;
-        min-height: 160px;
-        line-height: 1.8;
+    /* Header menor */
+    .header {
+        padding: 22px 20px 16px;
     }
 
     .header h1 {
@@ -465,52 +468,156 @@ body {
         letter-spacing: 4px;
     }
 
-    .header {
-        padding: 22px 20px 16px;
+    .header-icon {
+        font-size: 1.4rem;
     }
 
+    .subtitle {
+        font-size: 0.85rem;
+    }
+
+    .header-line {
+        width: 90px;
+    }
+
+    /* Cena menor */
     .scene-image {
-        height: 160px;
+        height: 170px;
     }
 
     .scene-icon {
-        font-size: 3.8rem;
+        font-size: 4rem;
     }
 
     .scene-content {
         gap: 35px;
     }
 
-    .choice-btn {
-        padding: 13px 18px;
-        font-size: 0.95rem;
+    /* Conteúdo mais compacto */
+    .content {
+        padding: 22px 20px 20px;
     }
 
-    .btn {
-        padding: 12px 18px;
-        font-size: 0.95rem;
-        min-width: 100px;
-    }
-
-    .progress-container {
-        padding: 12px 18px 10px;
+    .story-text {
+        padding: 24px 22px;
+        font-size: 1rem;
+        min-height: 170px;
+        border-left-width: 3px;
+        line-height: 1.8;
     }
 
     .story-text::before,
     .story-text::after {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
+        opacity: 0.04;
+    }
+
+    .choice-btn {
+        padding: 14px 18px;
+        font-size: 0.95rem;
+    }
+
+    .choice-number {
+        width: 26px;
+        height: 26px;
+        line-height: 26px;
+        font-size: 0.75rem;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+        min-width: 100px;
+        border-radius: 10px;
+    }
+
+    .progress-container {
+        padding: 12px 20px 10px;
+    }
+
+    .footer {
+        padding: 18px 20px 16px;
     }
 }
 
+/* ===== MOBILE GRANDE ===== */
 @media (max-width: 480px) {
+    /* Fundo mais limpo */
     body {
         padding: 8px;
+        background-image: 
+            radial-gradient(ellipse at 50% 50%, rgba(44, 24, 16, 0.4) 0%, transparent 70%);
     }
 
     .game-container {
         border-radius: 18px;
+        box-shadow: 
+            0 0 40px rgba(212, 163, 115, 0.04),
+            0 15px 40px rgba(0, 0, 0, 0.8);
+        border-color: rgba(212, 163, 115, 0.08);
     }
 
+    .game-container:hover {
+        box-shadow: 
+            0 0 60px rgba(212, 163, 115, 0.06),
+            0 20px 50px rgba(0, 0, 0, 0.85);
+    }
+
+    /* Header mais simples */
+    .header {
+        padding: 16px 14px 12px;
+        background: linear-gradient(180deg, #1a1210, #0f0a08);
+    }
+
+    .header-top {
+        gap: 10px;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        animation-duration: 6s; /* menos intenso no mobile */
+    }
+
+    .header-icon {
+        font-size: 1.2rem;
+        animation-duration: 4s;
+    }
+
+    .subtitle {
+        font-size: 0.75rem;
+        opacity: 0.5;
+    }
+
+    .header-line {
+        width: 70px;
+        margin-top: 10px;
+        opacity: 0.6;
+    }
+
+    /* Cena mais compacta */
+    .scene-image {
+        height: 120px;
+    }
+
+    .scene-image::before {
+        opacity: 0.5;
+    }
+
+    .scene-overlay {
+        display: none; /* remove overlay para performance */
+    }
+
+    .scene-icon {
+        font-size: 2.8rem;
+        animation-duration: 5s;
+    }
+
+    .scene-content {
+        gap: 25px;
+    }
+
+    /* Conteúdo mais enxuto */
     .content {
         padding: 14px 12px 14px;
     }
@@ -518,53 +625,40 @@ body {
     .story-text {
         padding: 16px 14px;
         font-size: 0.92rem;
-        min-height: 130px;
+        min-height: 140px;
         border-left-width: 3px;
         line-height: 1.7;
+        margin-bottom: 18px;
+        border-radius: 12px;
+        box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.3);
     }
 
-    .header h1 {
-        font-size: 1.5rem;
-        letter-spacing: 2px;
+    .story-text::before {
+        top: 6px;
+        left: 10px;
+        font-size: 2rem;
+        opacity: 0.04;
     }
 
-    .header-top {
-        gap: 8px;
+    .story-text::after {
+        bottom: 6px;
+        right: 12px;
+        font-size: 2rem;
+        opacity: 0.04;
     }
 
-    .header-icon {
-        font-size: 1.2rem;
-    }
-
-    .subtitle {
-        font-size: 0.75rem;
-    }
-
-    .header {
-        padding: 18px 14px 12px;
-    }
-
-    .header-line {
-        width: 80px;
-        margin-top: 12px;
-    }
-
-    .scene-image {
-        height: 110px;
-    }
-
-    .scene-icon {
-        font-size: 2.5rem;
-    }
-
-    .scene-content {
-        gap: 20px;
-    }
-
+    /* Botões mais simples */
     .choice-btn {
-        padding: 11px 14px;
+        padding: 12px 14px;
         font-size: 0.85rem;
         border-radius: 10px;
+        border-width: 1px;
+        transition: all 0.2s ease;
+    }
+
+    .choice-btn:hover {
+        transform: translateX(4px);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
     }
 
     .choice-number {
@@ -575,6 +669,7 @@ body {
         margin-right: 10px;
     }
 
+    /* Botões de ação empilhados */
     .action-buttons {
         flex-direction: column;
         gap: 8px;
@@ -586,8 +681,22 @@ body {
         padding: 11px 14px;
         font-size: 0.85rem;
         border-radius: 10px;
+        justify-content: center;
     }
 
+    .btn:hover {
+        transform: translateY(-1px) !important;
+    }
+
+    .btn-reset {
+        background: linear-gradient(135deg, #2c1810, #1a0e0a);
+    }
+
+    .btn-back {
+        background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+    }
+
+    /* Progresso menor */
     .progress-container {
         padding: 8px 12px 8px;
     }
@@ -595,10 +704,16 @@ body {
     .progress-label {
         font-size: 0.55rem;
         letter-spacing: 2px;
+        margin-bottom: 3px;
     }
 
+    .progress-bar {
+        height: 2px;
+    }
+
+    /* Footer mais compacto */
     .footer {
-        padding: 14px 12px 12px;
+        padding: 12px 12px 10px;
     }
 
     .footer-text {
@@ -607,34 +722,32 @@ body {
 
     .footer-quote {
         font-size: 0.6rem;
+        margin-top: 4px;
     }
 
-    .story-text::before,
-    .story-text::after {
-        font-size: 2rem;
-        opacity: 0.04;
+    .footer-dots {
+        margin-top: 8px;
+        gap: 6px;
     }
 
-    .story-text::before {
-        top: 6px;
-        left: 10px;
-    }
-    
-    .story-text::after {
-        bottom: 6px;
-        right: 12px;
+    .dot {
+        width: 3px;
+        height: 3px;
     }
 
-    .scene-overlay {
-        display: none;
+    .dot:nth-child(2) {
+        width: 5px;
+        height: 5px;
     }
 }
 
+/* ===== MOBILE PEQUENO ===== */
 @media (max-width: 380px) {
     .story-text {
         font-size: 0.85rem;
         padding: 14px 12px;
-        min-height: 110px;
+        min-height: 120px;
+        line-height: 1.6;
     }
 
     .choice-btn {
@@ -652,6 +765,22 @@ body {
     }
 
     .scene-image {
-        height: 90px;
+        height: 100px;
+    }
+
+    .scene-content {
+        gap: 18px;
+    }
+
+    .header h1 {
+        font-size: 1.3rem;
+    }
+
+    .header-icon {
+        font-size: 1rem;
+    }
+
+    .subtitle {
+        font-size: 0.65rem;
     }
 }
