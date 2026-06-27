@@ -475,6 +475,9 @@ body {
 
     .scene-icon {
         font-size: 3.8rem;
+    }
+
+    .scene-content {
         gap: 35px;
     }
 
@@ -552,7 +555,6 @@ body {
 
     .scene-icon {
         font-size: 2.5rem;
-        gap: 15px;
     }
 
     .scene-content {
@@ -628,7 +630,6 @@ body {
     }
 }
 
-/* ===== MOBILE SPECIFIC - MELHORIA DE LEGIBILIDADE ===== */
 @media (max-width: 380px) {
     .story-text {
         font-size: 0.85rem;
