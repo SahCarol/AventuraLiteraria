@@ -74,23 +74,26 @@ body {
     50% { opacity: 0.7; transform: scale(1.05); }
 }
 
+/* ===== TÍTULO - VERSÃO DESKTOP ===== */
 .header h1 {
     font-family: 'Playfair Display', 'Georgia', serif;
     font-size: 2.8rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #f5e0b8 0%, #d4a373 30%, #f0d8a8 60%, #d4a373 100%);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: goldShine 3s ease-in-out infinite;
+    color: #f0d8a8;
+    text-shadow: 
+        0 0 20px rgba(212, 163, 115, 0.3),
+        0 0 40px rgba(212, 163, 115, 0.1);
     letter-spacing: 6px;
-    filter: drop-shadow(0 2px 4px rgba(212, 163, 115, 0.2));
+    animation: goldPulse 3s ease-in-out infinite;
 }
 
-@keyframes goldShine {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+@keyframes goldPulse {
+    0%, 100% { 
+        text-shadow: 0 0 20px rgba(212, 163, 115, 0.3), 0 0 40px rgba(212, 163, 115, 0.1);
+    }
+    50% { 
+        text-shadow: 0 0 30px rgba(212, 163, 115, 0.5), 0 0 60px rgba(212, 163, 115, 0.2);
+    }
 }
 
 .subtitle {
@@ -482,7 +485,7 @@ body {
 }
 
 /* ============================================================
-   📱 MOBILE - TÍTULO AJUSTADO PARA FICAR BEM VISÍVEL
+   📱 MOBILE - TÍTULO CORRIGIDO E BEM VISÍVEL
    ============================================================ */
 
 /* ===== TABLET ===== */
@@ -506,17 +509,15 @@ body {
         border-bottom-color: rgba(212, 163, 115, 0.08);
     }
 
-    /* TÍTULO MAIOR E MAIS VISÍVEL NO TABLET */
+    /* TÍTULO VISÍVEL NO TABLET */
     .header h1 {
-        font-size: 2.4rem !important;
-        letter-spacing: 4px !important;
-        animation-duration: 4s !important;
-        filter: drop-shadow(0 2px 8px rgba(212, 163, 115, 0.3)) !important;
-        background: linear-gradient(135deg, #f5e0b8 0%, #d4a373 30%, #f0d8a8 60%, #d4a373 100%) !important;
-        background-size: 200% 200% !important;
-        -webkit-background-clip: text !important;
-        -webkit-text-fill-color: transparent !important;
-        background-clip: text !important;
+        font-size: 2.4rem;
+        letter-spacing: 4px;
+        color: #f0d8a8;
+        text-shadow: 
+            0 0 25px rgba(212, 163, 115, 0.4),
+            0 0 50px rgba(212, 163, 115, 0.15);
+        animation: goldPulse 4s ease-in-out infinite;
     }
 
     .header-icon {
@@ -678,46 +679,59 @@ body {
     }
 
     .header {
-        padding: 18px 14px 14px;
+        padding: 16px 14px 12px;
         background: linear-gradient(180deg, #1a1210, #0f0a08);
         border-bottom-color: rgba(212, 163, 115, 0.06);
     }
 
     .header-top {
-        gap: 12px;
+        gap: 10px;
     }
 
-    /* 🎯 TÍTULO AJUSTADO - MAIOR E MAIS VISÍVEL NO MOBILE */
+    /* ============================================================
+       🔥 TÍTULO CORRIGIDO - AGORA VISÍVEL NO MOBILE!
+       ============================================================ */
     .header h1 {
-        font-size: 2rem !important;
-        letter-spacing: 3px !important;
-        background: linear-gradient(135deg, #f5e0b8 0%, #d4a373 25%, #f0d8a8 50%, #d4a373 75%, #f5e0b8 100%) !important;
-        background-size: 200% 200% !important;
-        -webkit-background-clip: text !important;
-        -webkit-text-fill-color: transparent !important;
-        background-clip: text !important;
-        animation: goldShine 5s ease-in-out infinite !important;
-        filter: drop-shadow(0 2px 10px rgba(212, 163, 115, 0.35)) !important;
+        font-size: 1.8rem !important;
+        letter-spacing: 2px !important;
+        color: #f5e0b8 !important;
+        text-shadow: 
+            0 0 20px rgba(212, 163, 115, 0.5),
+            0 0 40px rgba(212, 163, 115, 0.2),
+            0 0 80px rgba(212, 163, 115, 0.1) !important;
+        animation: goldPulse 4s ease-in-out infinite !important;
         font-weight: 700 !important;
+        -webkit-text-fill-color: #f5e0b8 !important; /* Força a cor em navegadores WebKit */
+        background: none !important; /* Remove qualquer background que possa esconder */
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     .header-icon {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         opacity: 0.5;
         animation-duration: 4s;
+        display: inline-block !important;
+        visibility: visible !important;
     }
 
     .subtitle {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         color: rgba(200, 170, 140, 0.5);
         margin-top: 4px;
+        display: block !important;
+        visibility: visible !important;
     }
 
     .header-line {
         width: 80px;
-        margin-top: 12px;
+        margin-top: 10px;
         background: linear-gradient(90deg, transparent, rgba(212, 163, 115, 0.4), transparent);
         height: 2px;
+        display: block !important;
     }
 
     .scene-image {
@@ -907,8 +921,11 @@ body {
 /* ===== MOBILE PEQUENO ===== */
 @media (max-width: 380px) {
     .header h1 {
-        font-size: 1.6rem !important;
-        letter-spacing: 2px !important;
+        font-size: 1.5rem !important;
+        letter-spacing: 1px !important;
+        text-shadow: 
+            0 0 15px rgba(212, 163, 115, 0.4),
+            0 0 30px rgba(212, 163, 115, 0.15) !important;
     }
 
     .header-icon {
@@ -916,7 +933,7 @@ body {
     }
 
     .subtitle {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
     }
 
     .story-text {
