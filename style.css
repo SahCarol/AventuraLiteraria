@@ -79,21 +79,19 @@ body {
     font-family: 'Playfair Display', 'Georgia', serif;
     font-size: 2.8rem;
     font-weight: 700;
-    color: #f0d8a8;
-    text-shadow: 
-        0 0 20px rgba(212, 163, 115, 0.3),
-        0 0 40px rgba(212, 163, 115, 0.1);
+    background: linear-gradient(135deg, #f5e0b8 0%, #d4a373 30%, #f0d8a8 60%, #d4a373 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: goldShine 3s ease-in-out infinite;
     letter-spacing: 6px;
-    animation: goldPulse 3s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(212, 163, 115, 0.2));
 }
 
-@keyframes goldPulse {
-    0%, 100% { 
-        text-shadow: 0 0 20px rgba(212, 163, 115, 0.3), 0 0 40px rgba(212, 163, 115, 0.1);
-    }
-    50% { 
-        text-shadow: 0 0 30px rgba(212, 163, 115, 0.5), 0 0 60px rgba(212, 163, 115, 0.2);
-    }
+@keyframes goldShine {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 .subtitle {
@@ -485,7 +483,7 @@ body {
 }
 
 /* ============================================================
-   📱 MOBILE - TÍTULO CORRIGIDO E BEM VISÍVEL
+   📱 MOBILE - TÍTULO DOURADO VIBRANTE
    ============================================================ */
 
 /* ===== TABLET ===== */
@@ -509,15 +507,17 @@ body {
         border-bottom-color: rgba(212, 163, 115, 0.08);
     }
 
-    /* TÍTULO VISÍVEL NO TABLET */
+    /* TÍTULO DOURADO NO TABLET */
     .header h1 {
         font-size: 2.4rem;
         letter-spacing: 4px;
-        color: #f0d8a8;
-        text-shadow: 
-            0 0 25px rgba(212, 163, 115, 0.4),
-            0 0 50px rgba(212, 163, 115, 0.15);
-        animation: goldPulse 4s ease-in-out infinite;
+        background: linear-gradient(135deg, #f5e0b8 0%, #d4a373 30%, #f0d8a8 60%, #d4a373 100%);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: goldShine 4s ease-in-out infinite;
+        filter: drop-shadow(0 2px 8px rgba(212, 163, 115, 0.3));
     }
 
     .header-icon {
@@ -689,22 +689,26 @@ body {
     }
 
     /* ============================================================
-       🔥 TÍTULO CORRIGIDO - AGORA VISÍVEL NO MOBILE!
+       🔥 TÍTULO DOURADO VIBRANTE NO MOBILE
        ============================================================ */
     .header h1 {
         font-size: 1.8rem !important;
-        letter-spacing: 2px !important;
-        color: #f5e0b8 !important;
-        text-shadow: 
-            0 0 20px rgba(212, 163, 115, 0.5),
-            0 0 40px rgba(212, 163, 115, 0.2),
-            0 0 80px rgba(212, 163, 115, 0.1) !important;
-        animation: goldPulse 4s ease-in-out infinite !important;
+        letter-spacing: 3px !important;
         font-weight: 700 !important;
-        -webkit-text-fill-color: #f5e0b8 !important; /* Força a cor em navegadores WebKit */
-        background: none !important; /* Remove qualquer background que possa esconder */
-        -webkit-background-clip: unset !important;
-        background-clip: unset !important;
+        
+        /* Gradiente dourado vibrante */
+        background: linear-gradient(135deg, #f5e0b8 0%, #d4a373 20%, #f0d8a8 45%, #c8a070 65%, #f5e0b8 100%) !important;
+        background-size: 200% 200% !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+        
+        /* Animação de brilho */
+        animation: goldShine 3s ease-in-out infinite !important;
+        
+        /* Glow dourado */
+        filter: drop-shadow(0 2px 12px rgba(212, 163, 115, 0.5)) drop-shadow(0 0 30px rgba(212, 163, 115, 0.15)) !important;
+        
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
@@ -922,10 +926,8 @@ body {
 @media (max-width: 380px) {
     .header h1 {
         font-size: 1.5rem !important;
-        letter-spacing: 1px !important;
-        text-shadow: 
-            0 0 15px rgba(212, 163, 115, 0.4),
-            0 0 30px rgba(212, 163, 115, 0.15) !important;
+        letter-spacing: 2px !important;
+        filter: drop-shadow(0 2px 8px rgba(212, 163, 115, 0.4)) drop-shadow(0 0 20px rgba(212, 163, 115, 0.1)) !important;
     }
 
     .header-icon {
