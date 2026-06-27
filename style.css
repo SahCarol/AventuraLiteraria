@@ -28,31 +28,30 @@ body {
 .game-container {
     max-width: 880px;
     width: 100%;
-    background: #1a1210;
+    background: #1e1613;
     border-radius: 32px;
     overflow: hidden;
     box-shadow: 
-        0 0 80px rgba(212, 163, 115, 0.15),
+        0 0 60px rgba(212, 163, 115, 0.06),
         0 20px 60px rgba(0, 0, 0, 0.8),
-        inset 0 1px 0 rgba(212, 163, 115, 0.15);
-    border: 1px solid rgba(212, 163, 115, 0.2);
+        inset 0 1px 0 rgba(212, 163, 115, 0.08);
+    border: 1px solid rgba(212, 163, 115, 0.12);
     transition: all 0.5s ease;
 }
 
 .game-container:hover {
     box-shadow: 
-        0 0 120px rgba(212, 163, 115, 0.25),
+        0 0 80px rgba(212, 163, 115, 0.08),
         0 30px 80px rgba(0, 0, 0, 0.9),
-        inset 0 1px 0 rgba(212, 163, 115, 0.2);
-    border-color: rgba(212, 163, 115, 0.3);
+        inset 0 1px 0 rgba(212, 163, 115, 0.1);
 }
 
 /* ===== HEADER ===== */
 .header {
     padding: 30px 30px 20px;
-    background: linear-gradient(180deg, #1a1210 0%, #0f0a08 100%);
+    background: linear-gradient(180deg, #221a16 0%, #16100c 100%);
     text-align: center;
-    border-bottom: 1px solid rgba(212, 163, 115, 0.15);
+    border-bottom: 1px solid rgba(212, 163, 115, 0.08);
     position: relative;
 }
 
@@ -65,13 +64,13 @@ body {
 
 .header-icon {
     font-size: 1.8rem;
-    opacity: 0.5;
+    opacity: 0.35;
     animation: pulseIcon 3s ease-in-out infinite;
 }
 
 @keyframes pulseIcon {
-    0%, 100% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.05); }
+    0%, 100% { opacity: 0.25; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.05); }
 }
 
 /* ============================================================
@@ -117,7 +116,7 @@ body {
 }
 
 .subtitle {
-    color: rgba(160, 128, 96, 0.6);
+    color: rgba(180, 150, 120, 0.5);
     font-size: 1rem;
     font-style: italic;
     margin-top: 6px;
@@ -128,17 +127,17 @@ body {
     width: 120px;
     height: 2px;
     margin: 16px auto 0;
-    background: linear-gradient(90deg, transparent, rgba(212, 163, 115, 0.6), transparent);
+    background: linear-gradient(90deg, transparent, rgba(212, 163, 115, 0.3), transparent);
     border-radius: 2px;
 }
 
 /* ===== CENA IMAGEM ===== */
 .scene-image {
     width: 100%;
-    height: 220px;
+    height: 200px;
     position: relative;
     overflow: hidden;
-    background: #0f0a08;
+    background: #16100c;
 }
 
 .scene-image::before {
@@ -146,8 +145,8 @@ body {
     position: absolute;
     inset: 0;
     background: 
-        radial-gradient(ellipse at 30% 50%, rgba(212, 163, 115, 0.06) 0%, transparent 70%),
-        radial-gradient(ellipse at 70% 50%, rgba(212, 163, 115, 0.04) 0%, transparent 70%);
+        radial-gradient(ellipse at 30% 50%, rgba(212, 163, 115, 0.04) 0%, transparent 70%),
+        radial-gradient(ellipse at 70% 50%, rgba(212, 163, 115, 0.02) 0%, transparent 70%);
     z-index: 1;
 }
 
@@ -155,7 +154,7 @@ body {
     position: absolute;
     inset: 0;
     background: 
-        linear-gradient(90deg, transparent 0%, rgba(212, 163, 115, 0.02) 50%, transparent 100%);
+        linear-gradient(90deg, transparent 0%, rgba(212, 163, 115, 0.015) 50%, transparent 100%);
     z-index: 2;
     animation: overlayMove 8s ease-in-out infinite;
 }
@@ -177,8 +176,8 @@ body {
 }
 
 .scene-icon {
-    font-size: 5rem;
-    filter: drop-shadow(0 4px 20px rgba(212, 163, 115, 0.15));
+    font-size: 4.5rem;
+    filter: drop-shadow(0 4px 20px rgba(212, 163, 115, 0.12));
     animation: floatIcon 4s ease-in-out infinite;
     transition: all 0.4s ease;
     cursor: default;
@@ -195,18 +194,18 @@ body {
 
 .scene-icon:hover {
     transform: scale(1.2) rotate(-5deg);
-    filter: drop-shadow(0 8px 30px rgba(212, 163, 115, 0.3));
+    filter: drop-shadow(0 8px 30px rgba(212, 163, 115, 0.25));
 }
 
 /* ===== PROGRESSO ===== */
 .progress-container {
     padding: 14px 30px 10px;
-    background: rgba(15, 10, 8, 0.5);
-    border-bottom: 1px solid rgba(212, 163, 115, 0.05);
+    background: rgba(22, 16, 12, 0.6);
+    border-bottom: 1px solid rgba(212, 163, 115, 0.04);
 }
 
 .progress-label {
-    color: rgba(160, 128, 96, 0.4);
+    color: rgba(180, 150, 120, 0.4);
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -217,7 +216,7 @@ body {
 .progress-bar {
     width: 100%;
     height: 3px;
-    background: rgba(212, 163, 115, 0.08);
+    background: rgba(212, 163, 115, 0.06);
     border-radius: 4px;
     overflow: hidden;
     position: relative;
@@ -240,22 +239,22 @@ body {
 
 /* ===== CONTEÚDO ===== */
 .content {
-    padding: 30px 35px 28px;
-    background: #1a1210;
+    padding: 28px 32px 26px;
+    background: #1e1613;
 }
 
 /* ===== TEXTO DA HISTÓRIA ===== */
 .story-text {
-    background: linear-gradient(145deg, #221a16, #1a1210);
-    padding: 32px 35px;
+    background: linear-gradient(145deg, #281e18, #1e1613);
+    padding: 30px 32px;
     border-radius: 16px;
-    margin-bottom: 28px;
+    margin-bottom: 26px;
     font-size: 1.1rem;
     line-height: 1.9;
-    color: #d4c4b0;
-    min-height: 210px;
-    border-left: 4px solid rgba(212, 163, 115, 0.3);
-    border-right: 1px solid rgba(212, 163, 115, 0.05);
+    color: #e0d4c8;
+    min-height: 200px;
+    border-left: 4px solid rgba(212, 163, 115, 0.25);
+    border-right: 1px solid rgba(212, 163, 115, 0.04);
     box-shadow: 
         inset 0 2px 20px rgba(0, 0, 0, 0.4),
         0 4px 20px rgba(0, 0, 0, 0.2);
@@ -266,10 +265,10 @@ body {
 .story-text::before {
     content: '❝';
     position: absolute;
-    top: 12px;
-    left: 16px;
-    font-size: 3.5rem;
-    color: rgba(212, 163, 115, 0.06);
+    top: 10px;
+    left: 14px;
+    font-size: 3.2rem;
+    color: rgba(212, 163, 115, 0.05);
     font-family: 'Georgia', serif;
     line-height: 1;
 }
@@ -277,10 +276,10 @@ body {
 .story-text::after {
     content: '❞';
     position: absolute;
-    bottom: 12px;
-    right: 20px;
-    font-size: 3.5rem;
-    color: rgba(212, 163, 115, 0.06);
+    bottom: 10px;
+    right: 18px;
+    font-size: 3.2rem;
+    color: rgba(212, 163, 115, 0.05);
     font-family: 'Georgia', serif;
     line-height: 1;
 }
@@ -290,14 +289,14 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 }
 
 .choice-btn {
     width: 100%;
-    padding: 16px 24px;
-    background: linear-gradient(135deg, #221a16, #1a1210);
-    border: 1px solid rgba(212, 163, 115, 0.12);
+    padding: 15px 22px;
+    background: linear-gradient(135deg, #281e18, #1e1613);
+    border: 1px solid rgba(212, 163, 115, 0.10);
     border-radius: 12px;
     color: #d4c4b0;
     font-family: 'Lora', 'Georgia', serif;
@@ -313,7 +312,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(212, 163, 115, 0.05), transparent);
+    background: linear-gradient(135deg, rgba(212, 163, 115, 0.04), transparent);
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -323,14 +322,15 @@ body {
 }
 
 .choice-btn:hover {
-    border-color: rgba(212, 163, 115, 0.3);
-    transform: translateX(8px);
+    border-color: rgba(212, 163, 115, 0.25);
+    transform: translateX(6px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(135deg, #2a1e18, #1a1210);
+    background: linear-gradient(135deg, #32261e, #221a16);
+    color: #ece0d4;
 }
 
 .choice-btn:active {
-    transform: scale(0.98) translateX(4px);
+    transform: scale(0.98) translateX(3px);
 }
 
 .choice-number {
@@ -339,18 +339,18 @@ body {
     height: 28px;
     line-height: 28px;
     text-align: center;
-    background: rgba(212, 163, 115, 0.06);
+    background: rgba(212, 163, 115, 0.05);
     border-radius: 50%;
     margin-right: 14px;
     font-size: 0.8rem;
     font-weight: 600;
-    color: rgba(212, 163, 115, 0.4);
+    color: rgba(212, 163, 115, 0.35);
     transition: all 0.3s;
 }
 
 .choice-btn:hover .choice-number {
-    background: rgba(212, 163, 115, 0.12);
-    color: rgba(212, 163, 115, 0.6);
+    background: rgba(212, 163, 115, 0.10);
+    color: rgba(212, 163, 115, 0.55);
 }
 
 /* ===== BOTÕES DE AÇÃO ===== */
@@ -361,7 +361,7 @@ body {
 }
 
 .btn {
-    padding: 14px 28px;
+    padding: 13px 26px;
     border: none;
     border-radius: 12px;
     font-family: 'Lora', 'Georgia', serif;
@@ -381,31 +381,31 @@ body {
 }
 
 .btn-reset {
-    background: linear-gradient(135deg, #2c1810, #1a0e0a);
+    background: linear-gradient(135deg, #322018, #1e1210);
     color: rgba(212, 163, 115, 0.6);
-    border: 1px solid rgba(212, 163, 115, 0.08);
+    border: 1px solid rgba(212, 163, 115, 0.06);
 }
 
 .btn-reset:hover {
-    background: linear-gradient(135deg, #3a2218, #2c1810);
-    border-color: rgba(212, 163, 115, 0.2);
+    background: linear-gradient(135deg, #3e281e, #2c1a14);
+    border-color: rgba(212, 163, 115, 0.15);
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-    color: rgba(212, 163, 115, 0.9);
+    color: rgba(212, 163, 115, 0.85);
 }
 
 .btn-back {
-    background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
-    color: rgba(160, 128, 96, 0.4);
-    border: 1px solid rgba(160, 128, 96, 0.05);
+    background: linear-gradient(135deg, #1e1a18, #14100e);
+    color: rgba(180, 150, 120, 0.4);
+    border: 1px solid rgba(180, 150, 120, 0.04);
 }
 
 .btn-back:hover {
-    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
-    border-color: rgba(160, 128, 96, 0.15);
+    background: linear-gradient(135deg, #2e2622, #1e1613);
+    border-color: rgba(180, 150, 120, 0.12);
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-    color: rgba(160, 128, 96, 0.7);
+    color: rgba(180, 150, 120, 0.65);
 }
 
 .btn:active {
@@ -414,20 +414,20 @@ body {
 
 /* ===== FOOTER ===== */
 .footer {
-    padding: 24px 30px 20px;
-    background: linear-gradient(0deg, #0f0a08, #1a1210);
-    border-top: 1px solid rgba(212, 163, 115, 0.05);
+    padding: 22px 30px 18px;
+    background: linear-gradient(0deg, #100c0a, #1a1210);
+    border-top: 1px solid rgba(212, 163, 115, 0.04);
     text-align: center;
 }
 
 .footer-text {
-    color: rgba(160, 128, 96, 0.25);
+    color: rgba(180, 150, 120, 0.25);
     font-size: 0.8rem;
     letter-spacing: 1px;
 }
 
 .footer-quote {
-    color: rgba(160, 128, 96, 0.12);
+    color: rgba(180, 150, 120, 0.12);
     font-size: 0.75rem;
     font-style: italic;
     margin-top: 6px;
@@ -445,12 +445,12 @@ body {
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background: rgba(212, 163, 115, 0.08);
+    background: rgba(212, 163, 115, 0.06);
     transition: all 0.3s;
 }
 
 .dot:nth-child(2) {
-    background: rgba(212, 163, 115, 0.15);
+    background: rgba(212, 163, 115, 0.12);
     width: 6px;
     height: 6px;
 }
@@ -472,357 +472,145 @@ body {
 }
 
 /* ============================================================
-   📱 MOBILE - MESMO EFEITO METÁLICO DO DESKTOP
+   📱 MOBILE - EXATAMENTE COMO NO SEU CÓDIGO
    ============================================================ */
 
-/* ===== TABLET ===== */
 @media (max-width: 768px) {
-    .game-container {
-        border-radius: 24px;
-        border-color: rgba(212, 163, 115, 0.12);
-        box-shadow: 
-            0 0 40px rgba(212, 163, 115, 0.06),
-            0 15px 40px rgba(0, 0, 0, 0.7);
+    .content {
+        padding: 20px 18px 18px;
     }
 
-    .game-container:hover {
-        box-shadow: 
-            0 0 60px rgba(212, 163, 115, 0.08),
-            0 20px 50px rgba(0, 0, 0, 0.8);
+    .story-text {
+        padding: 22px 20px;
+        font-size: 1rem;
+        min-height: 160px;
+        line-height: 1.8;
+    }
+
+    /* TÍTULO NO TABLET - MANTÉM O ESTILO DO SEU CÓDIGO */
+    .header h1 {
+        font-size: 2.2rem;
+        letter-spacing: 4px;
+        background: linear-gradient(135deg, #f0d8a8 0%, #d4a373 40%, #f0d8a8 70%, #d4a373 100%);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: goldShine 4s ease-in-out infinite;
+        filter: none;
+    }
+
+    @keyframes goldShine {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
     }
 
     .header {
         padding: 22px 20px 16px;
-        border-bottom-color: rgba(212, 163, 115, 0.08);
-    }
-
-    /* ===== TÍTULO METÁLICO - TABLET ===== */
-    .header h1 {
-        font-size: 2.4rem;
-        letter-spacing: 4px;
-        
-        /* Mesmo gradiente metálico do desktop */
-        background: linear-gradient(
-            180deg,
-            #f5e0b8 0%,
-            #d4a373 25%,
-            #f0d8a8 45%,
-            #c8a070 60%,
-            #e8d0b0 80%,
-            #d4a373 100%
-        );
-        background-size: 100% 200%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        
-        /* Mesmo brilho suave */
-        filter: drop-shadow(0 2px 8px rgba(212, 163, 115, 0.3));
-        
-        /* Mesma animação */
-        animation: metallicShine 4s ease-in-out infinite;
-    }
-
-    .header-icon {
-        font-size: 1.6rem;
-        opacity: 0.5;
-    }
-
-    .subtitle {
-        font-size: 0.9rem;
-        color: rgba(160, 128, 96, 0.5);
-    }
-
-    .header-line {
-        width: 100px;
-        background: linear-gradient(90deg, transparent, rgba(212, 163, 115, 0.5), transparent);
     }
 
     .scene-image {
-        height: 170px;
-        background: #0f0a08;
-    }
-
-    .scene-image::before {
-        background: 
-            radial-gradient(ellipse at 30% 50%, rgba(212, 163, 115, 0.04) 0%, transparent 70%),
-            radial-gradient(ellipse at 70% 50%, rgba(212, 163, 115, 0.02) 0%, transparent 70%);
+        height: 160px;
     }
 
     .scene-icon {
-        font-size: 4rem;
-        filter: drop-shadow(0 4px 15px rgba(212, 163, 115, 0.15));
-    }
-
-    .scene-content {
+        font-size: 3.8rem;
         gap: 35px;
     }
 
-    .content {
-        padding: 22px 20px 20px;
-        background: #1a1210;
+    .choice-btn {
+        padding: 13px 18px;
+        font-size: 0.95rem;
     }
 
-    .story-text {
-        padding: 24px 22px;
-        font-size: 1rem;
-        min-height: 170px;
-        border-left-width: 3px;
-        line-height: 1.8;
-        color: #d4c4b0;
-        border-color: rgba(212, 163, 115, 0.2);
-        box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.3);
+    .btn {
+        padding: 12px 18px;
+        font-size: 0.95rem;
+        min-width: 100px;
+    }
+
+    .progress-container {
+        padding: 12px 18px 10px;
     }
 
     .story-text::before,
     .story-text::after {
-        font-size: 2.8rem;
-        color: rgba(212, 163, 115, 0.04);
-    }
-
-    .choice-btn {
-        padding: 14px 18px;
-        font-size: 0.95rem;
-        border-color: rgba(212, 163, 115, 0.1);
-        color: #c8b8a8;
-    }
-
-    .choice-btn:hover {
-        transform: translateX(6px);
-        border-color: rgba(212, 163, 115, 0.25);
-        background: linear-gradient(135deg, #281e18, #1a1210);
-    }
-
-    .choice-number {
-        width: 26px;
-        height: 26px;
-        line-height: 26px;
-        font-size: 0.75rem;
-        background: rgba(212, 163, 115, 0.04);
-        color: rgba(212, 163, 115, 0.3);
-    }
-
-    .btn {
-        padding: 12px 20px;
-        font-size: 0.95rem;
-        min-width: 100px;
-        border-radius: 10px;
-    }
-
-    .btn-reset {
-        color: rgba(212, 163, 115, 0.5);
-        border-color: rgba(212, 163, 115, 0.06);
-    }
-
-    .btn-reset:hover {
-        color: rgba(212, 163, 115, 0.7);
-        border-color: rgba(212, 163, 115, 0.15);
-    }
-
-    .btn-back {
-        color: rgba(160, 128, 96, 0.35);
-    }
-
-    .progress-container {
-        padding: 12px 20px 10px;
-        background: rgba(15, 10, 8, 0.5);
-        border-bottom-color: rgba(212, 163, 115, 0.04);
-    }
-
-    .progress-label {
-        color: rgba(160, 128, 96, 0.4);
-    }
-
-    .progress-bar {
-        background: rgba(212, 163, 115, 0.06);
-    }
-
-    .footer {
-        padding: 18px 20px 16px;
-        border-top-color: rgba(212, 163, 115, 0.04);
-    }
-
-    .footer-text {
-        color: rgba(160, 128, 96, 0.25);
-    }
-
-    .footer-quote {
-        color: rgba(160, 128, 96, 0.12);
-    }
-
-    .dot {
-        background: rgba(212, 163, 115, 0.06);
-    }
-    .dot:nth-child(2) {
-        background: rgba(212, 163, 115, 0.12);
+        font-size: 2.5rem;
     }
 }
 
-/* ===== MOBILE ===== */
 @media (max-width: 480px) {
     body {
         padding: 8px;
-        background-image: 
-            radial-gradient(ellipse at 50% 50%, rgba(44, 24, 16, 0.4) 0%, transparent 70%);
     }
 
     .game-container {
         border-radius: 18px;
-        box-shadow: 
-            0 0 30px rgba(212, 163, 115, 0.04),
-            0 15px 40px rgba(0, 0, 0, 0.7);
-        border-color: rgba(212, 163, 115, 0.08);
-    }
-
-    .game-container:hover {
-        box-shadow: 
-            0 0 40px rgba(212, 163, 115, 0.06),
-            0 20px 50px rgba(0, 0, 0, 0.75);
-        border-color: rgba(212, 163, 115, 0.1);
-    }
-
-    .header {
-        padding: 16px 14px 12px;
-        background: linear-gradient(180deg, #1a1210, #0f0a08);
-        border-bottom-color: rgba(212, 163, 115, 0.06);
-    }
-
-    .header-top {
-        gap: 10px;
-    }
-
-    /* ============================================================
-       👑 TÍTULO METÁLICO - MESMO EFEITO DO DESKTOP NO MOBILE
-       ============================================================ */
-    .header h1 {
-        font-size: 1.8rem !important;
-        letter-spacing: 3px !important;
-        font-weight: 700 !important;
-        
-        /* MESMO GRADIENTE METÁLICO DO DESKTOP */
-        background: linear-gradient(
-            180deg,
-            #f5e0b8 0%,
-            #d4a373 20%,
-            #f0d8a8 40%,
-            #c8a070 55%,
-            #e8d0b0 75%,
-            #d4a373 100%
-        ) !important;
-        background-size: 100% 200% !important;
-        -webkit-background-clip: text !important;
-        -webkit-text-fill-color: transparent !important;
-        background-clip: text !important;
-        
-        /* MESMO BRILHO SUAVE */
-        filter: drop-shadow(0 2px 8px rgba(212, 163, 115, 0.3)) !important;
-        
-        /* MESMA ANIMAÇÃO SUTIL */
-        animation: metallicShine 4s ease-in-out infinite !important;
-        
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-
-    .header-icon {
-        font-size: 1.3rem;
-        opacity: 0.5;
-        animation-duration: 4s;
-        display: inline-block !important;
-        visibility: visible !important;
-    }
-
-    .subtitle {
-        font-size: 0.75rem;
-        color: rgba(160, 128, 96, 0.5);
-        margin-top: 4px;
-        display: block !important;
-        visibility: visible !important;
-    }
-
-    .header-line {
-        width: 80px;
-        margin-top: 10px;
-        background: linear-gradient(90deg, transparent, rgba(212, 163, 115, 0.4), transparent);
-        height: 2px;
-        display: block !important;
-    }
-
-    .scene-image {
-        height: 120px;
-        background: #0f0a08;
-    }
-
-    .scene-image::before {
-        opacity: 0.5;
-        background: 
-            radial-gradient(ellipse at 30% 50%, rgba(212, 163, 115, 0.03) 0%, transparent 70%),
-            radial-gradient(ellipse at 70% 50%, rgba(212, 163, 115, 0.02) 0%, transparent 70%);
-    }
-
-    .scene-overlay {
-        display: none;
-    }
-
-    .scene-icon {
-        font-size: 2.8rem;
-        animation-duration: 5s;
-        filter: drop-shadow(0 4px 12px rgba(212, 163, 115, 0.12));
-    }
-
-    .scene-content {
-        gap: 25px;
     }
 
     .content {
         padding: 14px 12px 14px;
-        background: #1a1210;
     }
 
     .story-text {
         padding: 16px 14px;
         font-size: 0.92rem;
-        min-height: 140px;
+        min-height: 130px;
         border-left-width: 3px;
         line-height: 1.7;
-        margin-bottom: 18px;
-        border-radius: 12px;
-        color: #d4c4b0;
-        border-color: rgba(212, 163, 115, 0.15);
-        box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.3);
     }
 
-    .story-text::before {
-        top: 6px;
-        left: 10px;
-        font-size: 2rem;
-        color: rgba(212, 163, 115, 0.04);
+    /* TÍTULO NO MOBILE - EXATAMENTE COMO NO SEU CÓDIGO */
+    .header h1 {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        background: linear-gradient(135deg, #f0d8a8 0%, #d4a373 40%, #f0d8a8 70%, #d4a373 100%);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: goldShine 4s ease-in-out infinite;
+        filter: none;
     }
 
-    .story-text::after {
-        bottom: 6px;
-        right: 12px;
-        font-size: 2rem;
-        color: rgba(212, 163, 115, 0.04);
+    .header-top {
+        gap: 8px;
+    }
+
+    .header-icon {
+        font-size: 1.2rem;
+    }
+
+    .subtitle {
+        font-size: 0.75rem;
+    }
+
+    .header {
+        padding: 18px 14px 12px;
+    }
+
+    .header-line {
+        width: 80px;
+        margin-top: 12px;
+    }
+
+    .scene-image {
+        height: 110px;
+    }
+
+    .scene-icon {
+        font-size: 2.5rem;
+        gap: 15px;
+    }
+
+    .scene-content {
+        gap: 20px;
     }
 
     .choice-btn {
-        padding: 12px 14px;
+        padding: 11px 14px;
         font-size: 0.85rem;
         border-radius: 10px;
-        border-width: 1px;
-        border-color: rgba(212, 163, 115, 0.08);
-        color: #c8b8a8;
-        background: linear-gradient(135deg, #1e1613, #16100c);
-        transition: all 0.2s ease;
-    }
-
-    .choice-btn:hover {
-        transform: translateX(4px);
-        border-color: rgba(212, 163, 115, 0.2);
-        background: linear-gradient(135deg, #261c16, #1a1210);
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
     }
 
     .choice-number {
@@ -831,8 +619,6 @@ body {
         line-height: 22px;
         font-size: 0.65rem;
         margin-right: 10px;
-        background: rgba(212, 163, 115, 0.04);
-        color: rgba(212, 163, 115, 0.3);
     }
 
     .action-buttons {
@@ -846,130 +632,56 @@ body {
         padding: 11px 14px;
         font-size: 0.85rem;
         border-radius: 10px;
-        justify-content: center;
-    }
-
-    .btn-reset {
-        background: linear-gradient(135deg, #261a14, #1a0e0a);
-        color: rgba(212, 163, 115, 0.5);
-        border-color: rgba(212, 163, 115, 0.06);
-    }
-
-    .btn-reset:hover {
-        transform: translateY(-1px) !important;
-        color: rgba(212, 163, 115, 0.7);
-        border-color: rgba(212, 163, 115, 0.12);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-    }
-
-    .btn-back {
-        background: linear-gradient(135deg, #161412, #0f0d0c);
-        color: rgba(160, 128, 96, 0.3);
-        border-color: rgba(160, 128, 96, 0.04);
-    }
-
-    .btn-back:hover {
-        transform: translateY(-1px) !important;
-        color: rgba(160, 128, 96, 0.5);
-        border-color: rgba(160, 128, 96, 0.08);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
     }
 
     .progress-container {
         padding: 8px 12px 8px;
-        background: rgba(15, 10, 8, 0.4);
-        border-bottom-color: rgba(212, 163, 115, 0.04);
     }
 
     .progress-label {
         font-size: 0.55rem;
         letter-spacing: 2px;
-        margin-bottom: 3px;
-        color: rgba(160, 128, 96, 0.35);
-    }
-
-    .progress-bar {
-        height: 2px;
-        background: rgba(212, 163, 115, 0.06);
-    }
-
-    .progress-fill {
-        background: linear-gradient(90deg, #d4a373, #f0d8a8, #d4a373);
-        animation-duration: 3s;
     }
 
     .footer {
-        padding: 12px 12px 10px;
-        background: linear-gradient(0deg, #0f0a08, #1a1210);
-        border-top-color: rgba(212, 163, 115, 0.04);
+        padding: 14px 12px 12px;
     }
 
     .footer-text {
         font-size: 0.65rem;
-        color: rgba(160, 128, 96, 0.2);
     }
 
     .footer-quote {
         font-size: 0.6rem;
-        margin-top: 4px;
-        color: rgba(160, 128, 96, 0.1);
     }
 
-    .footer-dots {
-        margin-top: 8px;
-        gap: 6px;
+    .story-text::before,
+    .story-text::after {
+        font-size: 2rem;
+        opacity: 0.04;
     }
 
-    .dot {
-        width: 3px;
-        height: 3px;
-        background: rgba(212, 163, 115, 0.06);
+    .story-text::before {
+        top: 6px;
+        left: 10px;
+    }
+    
+    .story-text::after {
+        bottom: 6px;
+        right: 12px;
     }
 
-    .dot:nth-child(2) {
-        width: 5px;
-        height: 5px;
-        background: rgba(212, 163, 115, 0.1);
+    .scene-overlay {
+        display: none;
     }
 }
 
-/* ===== MOBILE PEQUENO ===== */
+/* ===== MOBILE SPECIFIC - MELHORIA DE LEGIBILIDADE ===== */
 @media (max-width: 380px) {
-    .header h1 {
-        font-size: 1.5rem !important;
-        letter-spacing: 2px !important;
-        
-        /* MESMO GRADIENTE METÁLICO - AJUSTADO PARA TAMANHO */
-        background: linear-gradient(
-            180deg,
-            #f5e0b8 0%,
-            #d4a373 20%,
-            #f0d8a8 40%,
-            #c8a070 55%,
-            #e8d0b0 75%,
-            #d4a373 100%
-        ) !important;
-        background-size: 100% 200% !important;
-        -webkit-background-clip: text !important;
-        -webkit-text-fill-color: transparent !important;
-        background-clip: text !important;
-        filter: drop-shadow(0 2px 6px rgba(212, 163, 115, 0.25)) !important;
-        animation: metallicShine 4s ease-in-out infinite !important;
-    }
-
-    .header-icon {
-        font-size: 1.1rem;
-    }
-
-    .subtitle {
-        font-size: 0.65rem;
-    }
-
     .story-text {
         font-size: 0.85rem;
         padding: 14px 12px;
-        min-height: 120px;
-        line-height: 1.6;
+        min-height: 110px;
     }
 
     .choice-btn {
@@ -987,10 +699,11 @@ body {
     }
 
     .scene-image {
-        height: 100px;
+        height: 90px;
     }
 
-    .scene-content {
-        gap: 18px;
+    .header h1 {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
     }
 }
