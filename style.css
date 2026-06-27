@@ -75,7 +75,7 @@ body {
 }
 
 /* ============================================================
-   👑 TÍTULO DOURADO METÁLICO COM GLOW SUAVE
+   👑 TÍTULO DOURADO METÁLICO - DESKTOP
    ============================================================ */
 .header h1 {
     font-family: 'Playfair Display', 'Georgia', serif;
@@ -472,7 +472,7 @@ body {
 }
 
 /* ============================================================
-   📱 MOBILE - DOURADO METÁLICO COM GLOW SUAVE
+   📱 MOBILE - MESMO EFEITO METÁLICO DO DESKTOP
    ============================================================ */
 
 /* ===== TABLET ===== */
@@ -496,9 +496,12 @@ body {
         border-bottom-color: rgba(212, 163, 115, 0.08);
     }
 
+    /* ===== TÍTULO METÁLICO - TABLET ===== */
     .header h1 {
         font-size: 2.4rem;
         letter-spacing: 4px;
+        
+        /* Mesmo gradiente metálico do desktop */
         background: linear-gradient(
             180deg,
             #f5e0b8 0%,
@@ -512,7 +515,11 @@ body {
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        
+        /* Mesmo brilho suave */
         filter: drop-shadow(0 2px 8px rgba(212, 163, 115, 0.3));
+        
+        /* Mesma animação */
         animation: metallicShine 4s ease-in-out infinite;
     }
 
@@ -685,14 +692,14 @@ body {
     }
 
     /* ============================================================
-       👑 TÍTULO DOURADO METÁLICO COM GLOW SUAVE - MOBILE
+       👑 TÍTULO METÁLICO - MESMO EFEITO DO DESKTOP NO MOBILE
        ============================================================ */
     .header h1 {
         font-size: 1.8rem !important;
         letter-spacing: 3px !important;
         font-weight: 700 !important;
         
-        /* Gradiente metálico */
+        /* MESMO GRADIENTE METÁLICO DO DESKTOP */
         background: linear-gradient(
             180deg,
             #f5e0b8 0%,
@@ -707,40 +714,15 @@ body {
         -webkit-text-fill-color: transparent !important;
         background-clip: text !important;
         
-        /* Glow suave - não neon */
+        /* MESMO BRILHO SUAVE */
         filter: drop-shadow(0 2px 8px rgba(212, 163, 115, 0.3)) !important;
         
-        /* Animação suave - sem pulsação agressiva */
-        animation: metallicShineMobile 5s ease-in-out infinite !important;
+        /* MESMA ANIMAÇÃO SUTIL */
+        animation: metallicShine 4s ease-in-out infinite !important;
         
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
-        
-        /* Garantia de funcionamento */
-        color: #d4a373 !important;
-        background-image: linear-gradient(
-            180deg,
-            #f5e0b8 0%,
-            #d4a373 20%,
-            #f0d8a8 40%,
-            #c8a070 55%,
-            #e8d0b0 75%,
-            #d4a373 100%
-        ) !important;
-        -webkit-text-fill-color: transparent !important;
-    }
-
-    /* Animação metálica suave - sem neon */
-    @keyframes metallicShineMobile {
-        0%, 100% {
-            background-position: 0% 0%;
-            filter: drop-shadow(0 2px 8px rgba(212, 163, 115, 0.3));
-        }
-        50% {
-            background-position: 0% 100%;
-            filter: drop-shadow(0 2px 12px rgba(212, 163, 115, 0.4)) drop-shadow(0 0 30px rgba(212, 163, 115, 0.05));
-        }
     }
 
     .header-icon {
@@ -956,6 +938,8 @@ body {
     .header h1 {
         font-size: 1.5rem !important;
         letter-spacing: 2px !important;
+        
+        /* MESMO GRADIENTE METÁLICO - AJUSTADO PARA TAMANHO */
         background: linear-gradient(
             180deg,
             #f5e0b8 0%,
@@ -965,10 +949,12 @@ body {
             #e8d0b0 75%,
             #d4a373 100%
         ) !important;
+        background-size: 100% 200% !important;
         -webkit-background-clip: text !important;
         -webkit-text-fill-color: transparent !important;
         background-clip: text !important;
         filter: drop-shadow(0 2px 6px rgba(212, 163, 115, 0.25)) !important;
+        animation: metallicShine 4s ease-in-out infinite !important;
     }
 
     .header-icon {
