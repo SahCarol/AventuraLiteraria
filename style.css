@@ -74,7 +74,7 @@ body {
 }
 
 /* ============================================================
-   👑 TÍTULO DOURADO METÁLICO - DESKTOP
+   👑 TÍTULO DOURADO METÁLICO - TODOS OS TAMANHOS
    ============================================================ */
 .header h1 {
     font-family: 'Playfair Display', 'Georgia', serif;
@@ -472,7 +472,7 @@ body {
 }
 
 /* ============================================================
-   📱 MOBILE - EXATAMENTE COMO NO SEU CÓDIGO
+   📱 RESPONSIVIDADE - TÍTULO METÁLICO EM TODOS OS TAMANHOS
    ============================================================ */
 
 @media (max-width: 768px) {
@@ -487,22 +487,27 @@ body {
         line-height: 1.8;
     }
 
-    /* TÍTULO NO TABLET - MANTÉM O ESTILO DO SEU CÓDIGO */
+    /* ===== TÍTULO METÁLICO - TABLET ===== */
     .header h1 {
         font-size: 2.2rem;
         letter-spacing: 4px;
-        background: linear-gradient(135deg, #f0d8a8 0%, #d4a373 40%, #f0d8a8 70%, #d4a373 100%);
-        background-size: 200% 200%;
+        
+        /* MESMO EFEITO METÁLICO DO DESKTOP */
+        background: linear-gradient(
+            180deg,
+            #f5e0b8 0%,
+            #d4a373 25%,
+            #f0d8a8 45%,
+            #c8a070 60%,
+            #e8d0b0 80%,
+            #d4a373 100%
+        );
+        background-size: 100% 200%;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        animation: goldShine 4s ease-in-out infinite;
-        filter: none;
-    }
-
-    @keyframes goldShine {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
+        filter: drop-shadow(0 2px 8px rgba(212, 163, 115, 0.3));
+        animation: metallicShine 4s ease-in-out infinite;
     }
 
     .header {
@@ -560,17 +565,27 @@ body {
         line-height: 1.7;
     }
 
-    /* TÍTULO NO MOBILE - EXATAMENTE COMO NO SEU CÓDIGO */
+    /* ===== TÍTULO METÁLICO - MOBILE ===== */
     .header h1 {
         font-size: 1.5rem;
         letter-spacing: 2px;
-        background: linear-gradient(135deg, #f0d8a8 0%, #d4a373 40%, #f0d8a8 70%, #d4a373 100%);
-        background-size: 200% 200%;
+        
+        /* MESMO EFEITO METÁLICO - AJUSTADO PARA TAMANHO */
+        background: linear-gradient(
+            180deg,
+            #f5e0b8 0%,
+            #d4a373 20%,
+            #f0d8a8 40%,
+            #c8a070 55%,
+            #e8d0b0 75%,
+            #d4a373 100%
+        );
+        background-size: 100% 200%;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        animation: goldShine 4s ease-in-out infinite;
-        filter: none;
+        filter: drop-shadow(0 2px 6px rgba(212, 163, 115, 0.25));
+        animation: metallicShine 4s ease-in-out infinite;
     }
 
     .header-top {
@@ -676,7 +691,7 @@ body {
     }
 }
 
-/* ===== MOBILE SPECIFIC - MELHORIA DE LEGIBILIDADE ===== */
+/* ===== MOBILE PEQUENO ===== */
 @media (max-width: 380px) {
     .story-text {
         font-size: 0.85rem;
@@ -702,8 +717,25 @@ body {
         height: 90px;
     }
 
+    /* ===== TÍTULO METÁLICO - MOBILE PEQUENO ===== */
     .header h1 {
         font-size: 1.3rem;
         letter-spacing: 1px;
+        
+        background: linear-gradient(
+            180deg,
+            #f5e0b8 0%,
+            #d4a373 20%,
+            #f0d8a8 40%,
+            #c8a070 55%,
+            #e8d0b0 75%,
+            #d4a373 100%
+        );
+        background-size: 100% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        filter: drop-shadow(0 2px 4px rgba(212, 163, 115, 0.2));
+        animation: metallicShine 4s ease-in-out infinite;
     }
 }
