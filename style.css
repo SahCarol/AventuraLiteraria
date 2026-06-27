@@ -74,24 +74,41 @@ body {
     50% { opacity: 0.7; transform: scale(1.05); }
 }
 
-/* ===== TÍTULO - VERSÃO DESKTOP ===== */
+/* ===== TÍTULO DOURADO - FUNCIONA EM TODOS OS NAVEGADORES ===== */
 .header h1 {
     font-family: 'Playfair Display', 'Georgia', serif;
     font-size: 2.8rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #f5e0b8 0%, #d4a373 30%, #f0d8a8 60%, #d4a373 100%);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: goldShine 3s ease-in-out infinite;
     letter-spacing: 6px;
-    filter: drop-shadow(0 2px 4px rgba(212, 163, 115, 0.2));
+    
+    /* COR DOURADA SÓLIDA - FUNCIONA SEMPRE */
+    color: #d4a373;
+    
+    /* GLOW DOURADO COM MÚLTIPLAS SOMBRAS */
+    text-shadow: 
+        0 0 10px rgba(212, 163, 115, 0.3),
+        0 0 20px rgba(212, 163, 115, 0.15),
+        0 0 40px rgba(212, 163, 115, 0.05);
+    
+    /* ANIMAÇÃO DE BRILHO */
+    animation: goldGlow 3s ease-in-out infinite;
 }
 
-@keyframes goldShine {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+@keyframes goldGlow {
+    0%, 100% {
+        color: #d4a373;
+        text-shadow: 
+            0 0 10px rgba(212, 163, 115, 0.3),
+            0 0 20px rgba(212, 163, 115, 0.15),
+            0 0 40px rgba(212, 163, 115, 0.05);
+    }
+    50% {
+        color: #f0d8a8;
+        text-shadow: 
+            0 0 20px rgba(212, 163, 115, 0.6),
+            0 0 40px rgba(212, 163, 115, 0.3),
+            0 0 80px rgba(212, 163, 115, 0.1);
+    }
 }
 
 .subtitle {
@@ -483,7 +500,7 @@ body {
 }
 
 /* ============================================================
-   📱 MOBILE - TÍTULO DOURADO VIBRANTE
+   📱 MOBILE - TÍTULO DOURADO GARANTIDO
    ============================================================ */
 
 /* ===== TABLET ===== */
@@ -507,17 +524,15 @@ body {
         border-bottom-color: rgba(212, 163, 115, 0.08);
     }
 
-    /* TÍTULO DOURADO NO TABLET */
     .header h1 {
         font-size: 2.4rem;
         letter-spacing: 4px;
-        background: linear-gradient(135deg, #f5e0b8 0%, #d4a373 30%, #f0d8a8 60%, #d4a373 100%);
-        background-size: 200% 200%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation: goldShine 4s ease-in-out infinite;
-        filter: drop-shadow(0 2px 8px rgba(212, 163, 115, 0.3));
+        color: #d4a373;
+        text-shadow: 
+            0 0 15px rgba(212, 163, 115, 0.4),
+            0 0 30px rgba(212, 163, 115, 0.2),
+            0 0 60px rgba(212, 163, 115, 0.05);
+        animation: goldGlow 4s ease-in-out infinite;
     }
 
     .header-icon {
@@ -689,29 +704,58 @@ body {
     }
 
     /* ============================================================
-       🔥 TÍTULO DOURADO VIBRANTE NO MOBILE
+       🔥 TÍTULO DOURADO GARANTIDO - FUNCIONA EM TODOS OS NAVEGADORES
        ============================================================ */
     .header h1 {
         font-size: 1.8rem !important;
         letter-spacing: 3px !important;
         font-weight: 700 !important;
         
-        /* Gradiente dourado vibrante */
-        background: linear-gradient(135deg, #f5e0b8 0%, #d4a373 20%, #f0d8a8 45%, #c8a070 65%, #f5e0b8 100%) !important;
-        background-size: 200% 200% !important;
-        -webkit-background-clip: text !important;
-        -webkit-text-fill-color: transparent !important;
-        background-clip: text !important;
+        /* COR DOURADA SÓLIDA - SEMPRE VISÍVEL */
+        color: #d4a373 !important;
         
-        /* Animação de brilho */
-        animation: goldShine 3s ease-in-out infinite !important;
+        /* GLOW DOURADO INTENSO */
+        text-shadow: 
+            0 0 15px rgba(212, 163, 115, 0.6),
+            0 0 30px rgba(212, 163, 115, 0.3),
+            0 0 60px rgba(212, 163, 115, 0.15),
+            0 0 100px rgba(212, 163, 115, 0.05) !important;
         
-        /* Glow dourado */
-        filter: drop-shadow(0 2px 12px rgba(212, 163, 115, 0.5)) drop-shadow(0 0 30px rgba(212, 163, 115, 0.15)) !important;
+        /* ANIMAÇÃO DE BRILHO */
+        animation: goldGlow 3s ease-in-out infinite !important;
         
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
+        
+        /* Remove qualquer background que possa atrapalhar */
+        background: none !important;
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+        -webkit-text-fill-color: #d4a373 !important;
+    }
+
+    /* Animação específica para mobile com mais brilho */
+    @keyframes goldGlowMobile {
+        0%, 100% {
+            color: #d4a373;
+            text-shadow: 
+                0 0 15px rgba(212, 163, 115, 0.6),
+                0 0 30px rgba(212, 163, 115, 0.3),
+                0 0 60px rgba(212, 163, 115, 0.15);
+        }
+        50% {
+            color: #f5e0b8;
+            text-shadow: 
+                0 0 25px rgba(212, 163, 115, 0.8),
+                0 0 50px rgba(212, 163, 115, 0.4),
+                0 0 80px rgba(212, 163, 115, 0.2),
+                0 0 120px rgba(212, 163, 115, 0.1);
+        }
+    }
+
+    .header h1 {
+        animation: goldGlowMobile 2.5s ease-in-out infinite !important;
     }
 
     .header-icon {
@@ -927,7 +971,10 @@ body {
     .header h1 {
         font-size: 1.5rem !important;
         letter-spacing: 2px !important;
-        filter: drop-shadow(0 2px 8px rgba(212, 163, 115, 0.4)) drop-shadow(0 0 20px rgba(212, 163, 115, 0.1)) !important;
+        text-shadow: 
+            0 0 12px rgba(212, 163, 115, 0.5),
+            0 0 25px rgba(212, 163, 115, 0.25),
+            0 0 50px rgba(212, 163, 115, 0.1) !important;
     }
 
     .header-icon {
