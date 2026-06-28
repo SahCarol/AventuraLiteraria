@@ -1,5 +1,5 @@
 /* ===== IMPORTAÇÃO DE FONTE ===== */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
 
 /* ===== RESET ===== */
 * {
@@ -73,54 +73,22 @@ body {
     50% { opacity: 0.5; transform: scale(1.05); }
 }
 
-/* ============================================================
-   👑 TÍTULO DOURADO METÁLICO - ESTILO OURO VERDADEIRO
-   ============================================================ */
 .header h1 {
     font-family: 'Playfair Display', 'Georgia', serif;
-    font-size: 3rem;
-    font-weight: 900;
-    letter-spacing: 8px;
-    
-    /* Gradiente metálico dourado - estilo ouro verdadeiro */
-    background: linear-gradient(
-        180deg,
-        #f7e8c8 0%,
-        #e8c87a 15%,
-        #f5d99a 30%,
-        #d4a84a 45%,
-        #f5d99a 55%,
-        #e8c87a 70%,
-        #c8a04a 85%,
-        #f7e8c8 100%
-    );
-    background-size: 100% 300%;
+    font-size: 2.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #f0d8a8 0%, #d4a373 40%, #f0d8a8 70%, #d4a373 100%);
+    background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    
-    /* Brilho metálico intenso */
-    filter: drop-shadow(0 2px 4px rgba(180, 130, 50, 0.4))
-           drop-shadow(0 4px 12px rgba(180, 130, 50, 0.2))
-           drop-shadow(0 8px 24px rgba(180, 130, 50, 0.1));
-    
-    /* Animação de brilho - lenta e suave */
-    animation: goldMetallic 5s ease-in-out infinite;
+    animation: goldShine 4s ease-in-out infinite;
+    letter-spacing: 6px;
 }
 
-@keyframes goldMetallic {
-    0%, 100% {
-        background-position: 0% 0%;
-        filter: drop-shadow(0 2px 4px rgba(180, 130, 50, 0.4))
-               drop-shadow(0 4px 12px rgba(180, 130, 50, 0.2))
-               drop-shadow(0 8px 24px rgba(180, 130, 50, 0.1));
-    }
-    50% {
-        background-position: 0% 100%;
-        filter: drop-shadow(0 2px 6px rgba(180, 130, 50, 0.6))
-               drop-shadow(0 4px 20px rgba(180, 130, 50, 0.3))
-               drop-shadow(0 8px 40px rgba(180, 130, 50, 0.15));
-    }
+@keyframes goldShine {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 .subtitle {
@@ -479,10 +447,7 @@ body {
     animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-/* ============================================================
-   📱 RESPONSIVIDADE - TÍTULO DOURADO METÁLICO
-   ============================================================ */
-
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
     .content {
         padding: 20px 18px 18px;
@@ -496,28 +461,8 @@ body {
     }
 
     .header h1 {
-        font-size: 2.4rem;
-        letter-spacing: 5px;
-        font-weight: 900;
-        background: linear-gradient(
-            180deg,
-            #f7e8c8 0%,
-            #e8c87a 15%,
-            #f5d99a 30%,
-            #d4a84a 45%,
-            #f5d99a 55%,
-            #e8c87a 70%,
-            #c8a04a 85%,
-            #f7e8c8 100%
-        );
-        background-size: 100% 300%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        filter: drop-shadow(0 2px 4px rgba(180, 130, 50, 0.4))
-               drop-shadow(0 4px 12px rgba(180, 130, 50, 0.2))
-               drop-shadow(0 8px 24px rgba(180, 130, 50, 0.1));
-        animation: goldMetallic 5s ease-in-out infinite;
+        font-size: 2.2rem;
+        letter-spacing: 4px;
     }
 
     .header {
@@ -530,6 +475,7 @@ body {
 
     .scene-icon {
         font-size: 3.8rem;
+        gap: 35px;
     }
 
     .choice-btn {
@@ -575,28 +521,8 @@ body {
     }
 
     .header h1 {
-        font-size: 1.6rem !important;
-        letter-spacing: 3px !important;
-        font-weight: 900 !important;
-        background: linear-gradient(
-            180deg,
-            #f7e8c8 0%,
-            #e8c87a 15%,
-            #f5d99a 30%,
-            #d4a84a 45%,
-            #f5d99a 55%,
-            #e8c87a 70%,
-            #c8a04a 85%,
-            #f7e8c8 100%
-        ) !important;
-        background-size: 100% 300% !important;
-        -webkit-background-clip: text !important;
-        -webkit-text-fill-color: transparent !important;
-        background-clip: text !important;
-        filter: drop-shadow(0 2px 4px rgba(180, 130, 50, 0.5))
-               drop-shadow(0 4px 12px rgba(180, 130, 50, 0.3))
-               drop-shadow(0 8px 24px rgba(180, 130, 50, 0.15)) !important;
-        animation: goldMetallic 5s ease-in-out infinite !important;
+        font-size: 1.5rem;
+        letter-spacing: 2px;
     }
 
     .header-top {
@@ -626,6 +552,7 @@ body {
 
     .scene-icon {
         font-size: 2.5rem;
+        gap: 15px;
     }
 
     .scene-content {
@@ -701,6 +628,7 @@ body {
     }
 }
 
+/* ===== MOBILE SPECIFIC - MELHORIA DE LEGIBILIDADE ===== */
 @media (max-width: 380px) {
     .story-text {
         font-size: 0.85rem;
@@ -725,27 +653,4 @@ body {
     .scene-image {
         height: 90px;
     }
-
-    .header h1 {
-        font-size: 1.3rem !important;
-        letter-spacing: 2px !important;
-        background: linear-gradient(
-            180deg,
-            #f7e8c8 0%,
-            #e8c87a 15%,
-            #f5d99a 30%,
-            #d4a84a 45%,
-            #f5d99a 55%,
-            #e8c87a 70%,
-            #c8a04a 85%,
-            #f7e8c8 100%
-        ) !important;
-        background-size: 100% 300% !important;
-        -webkit-background-clip: text !important;
-        -webkit-text-fill-color: transparent !important;
-        background-clip: text !important;
-        filter: drop-shadow(0 2px 4px rgba(180, 130, 50, 0.4))
-               drop-shadow(0 4px 10px rgba(180, 130, 50, 0.2)) !important;
-        animation: goldMetallic 5s ease-in-out infinite !important;
-    }
-                        }
+}
